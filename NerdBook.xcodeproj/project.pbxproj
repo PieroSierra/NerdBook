@@ -1,0 +1,1291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4312EA392CB316EA00CAB5C3 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EA382CB316E000CAB5C3 /* WaveView.swift */; };
+		4312EA3A2CB316EA00CAB5C3 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EA382CB316E000CAB5C3 /* WaveView.swift */; };
+		4312EA3B2CB316EA00CAB5C3 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EA382CB316E000CAB5C3 /* WaveView.swift */; };
+		4312EA3D2CB3BAE400CAB5C3 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EA3C2CB3BAE000CAB5C3 /* SharedData.swift */; };
+		4312EA3E2CB3BAE400CAB5C3 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EA3C2CB3BAE000CAB5C3 /* SharedData.swift */; };
+		4312EA3F2CB3BAE400CAB5C3 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EA3C2CB3BAE000CAB5C3 /* SharedData.swift */; };
+		432CFFA42CA951BC00884E5E /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432CFFA32CA951BC00884E5E /* SheetView.swift */; };
+		432E5D652C8A36CB007E7397 /* NerdBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E5D642C8A36CB007E7397 /* NerdBookApp.swift */; };
+		432E5D672C8A36CB007E7397 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E5D662C8A36CB007E7397 /* ContentView.swift */; };
+		432E5D692C8A36CD007E7397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432E5D682C8A36CD007E7397 /* Assets.xcassets */; };
+		432E5D6C2C8A36CD007E7397 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432E5D6B2C8A36CD007E7397 /* Preview Assets.xcassets */; };
+		432E5D772C8A36CF007E7397 /* NerdBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E5D762C8A36CF007E7397 /* NerdBookTests.swift */; };
+		432E5D812C8A36CF007E7397 /* NerdBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E5D802C8A36CF007E7397 /* NerdBookUITests.swift */; };
+		432E5D832C8A36CF007E7397 /* NerdBookUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E5D822C8A36CF007E7397 /* NerdBookUITestsLaunchTests.swift */; };
+		432E62432CADD40600F1F166 /* TriggerWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E62422CADD3FD00F1F166 /* TriggerWordsView.swift */; };
+		4331918C2CA5EC050062A5C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4331918B2CA5EC050062A5C2 /* FeedKit */; };
+		4331918E2CA5EC610062A5C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4331918D2CA5EC610062A5C2 /* FeedKit */; };
+		433191902CA5EC690062A5C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4331918F2CA5EC690062A5C2 /* FeedKit */; };
+		437853812CA008CB005EDD43 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437853802CA008CB005EDD43 /* WidgetKit.framework */; };
+		437853832CA008CB005EDD43 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437853822CA008CB005EDD43 /* SwiftUI.framework */; };
+		4378539A2CA0164C005EDD43 /* SharedLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D893C2C9588250016E958 /* SharedLogic.swift */; };
+		437853AD2CA49CA9005EDD43 /* WordOfTheDayExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4378537E2CA008CB005EDD43 /* WordOfTheDayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		437D89142C95865D0016E958 /* NerdBookiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D89132C95865D0016E958 /* NerdBookiOSApp.swift */; };
+		437D89162C95865D0016E958 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D89152C95865D0016E958 /* ContentView.swift */; };
+		437D89182C95865F0016E958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437D89172C95865F0016E958 /* Assets.xcassets */; };
+		437D891B2C9586600016E958 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437D891A2C9586600016E958 /* Preview Assets.xcassets */; };
+		437D89252C9586600016E958 /* NerdBookiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D89242C9586600016E958 /* NerdBookiOSTests.swift */; };
+		437D892F2C9586600016E958 /* NerdBookiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D892E2C9586600016E958 /* NerdBookiOSUITests.swift */; };
+		437D89312C9586600016E958 /* NerdBookiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D89302C9586600016E958 /* NerdBookiOSUITestsLaunchTests.swift */; };
+		437D893D2C9588250016E958 /* SharedLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D893C2C9588250016E958 /* SharedLogic.swift */; };
+		437D893E2C9588450016E958 /* SharedLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D893C2C9588250016E958 /* SharedLogic.swift */; };
+		437D893F2C95886B0016E958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432E5D682C8A36CD007E7397 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		432E5D732C8A36CF007E7397 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432E5D592C8A36CA007E7397 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 432E5D602C8A36CB007E7397;
+			remoteInfo = NerdBook;
+		};
+		432E5D7D2C8A36CF007E7397 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432E5D592C8A36CA007E7397 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 432E5D602C8A36CB007E7397;
+			remoteInfo = NerdBook;
+		};
+		437853922CA008CE005EDD43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432E5D592C8A36CA007E7397 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4378537D2CA008CB005EDD43;
+			remoteInfo = WordOfTheDayExtension;
+		};
+		437D89212C9586600016E958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432E5D592C8A36CA007E7397 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 437D89102C95865D0016E958;
+			remoteInfo = NerdBookiOS;
+		};
+		437D892B2C9586600016E958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 432E5D592C8A36CA007E7397 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 437D89102C95865D0016E958;
+			remoteInfo = NerdBookiOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		437853952CA008CE005EDD43 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437853A92CA49756005EDD43 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				437853AD2CA49CA9005EDD43 /* WordOfTheDayExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4312EA382CB316E000CAB5C3 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		4312EA3C2CB3BAE000CAB5C3 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		432CFFA32CA951BC00884E5E /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		432E5D612C8A36CB007E7397 /* NerdBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerdBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		432E5D642C8A36CB007E7397 /* NerdBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookApp.swift; sourceTree = "<group>"; };
+		432E5D662C8A36CB007E7397 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		432E5D682C8A36CD007E7397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		432E5D6B2C8A36CD007E7397 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		432E5D6D2C8A36CD007E7397 /* NerdBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NerdBook.entitlements; sourceTree = "<group>"; };
+		432E5D722C8A36CF007E7397 /* NerdBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NerdBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		432E5D762C8A36CF007E7397 /* NerdBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookTests.swift; sourceTree = "<group>"; };
+		432E5D7C2C8A36CF007E7397 /* NerdBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NerdBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		432E5D802C8A36CF007E7397 /* NerdBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookUITests.swift; sourceTree = "<group>"; };
+		432E5D822C8A36CF007E7397 /* NerdBookUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		432E62422CADD3FD00F1F166 /* TriggerWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerWordsView.swift; sourceTree = "<group>"; };
+		4378537E2CA008CB005EDD43 /* WordOfTheDayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WordOfTheDayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		437853802CA008CB005EDD43 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		437853822CA008CB005EDD43 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		437853A22CA0816F005EDD43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		437853A32CA09C87005EDD43 /* NerdBookiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NerdBookiOS.entitlements; sourceTree = "<group>"; };
+		437853A42CA09CCF005EDD43 /* WordOfTheDayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordOfTheDayExtension.entitlements; sourceTree = "<group>"; };
+		437D89112C95865D0016E958 /* NerdBookiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerdBookiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		437D89132C95865D0016E958 /* NerdBookiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookiOSApp.swift; sourceTree = "<group>"; };
+		437D89152C95865D0016E958 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		437D89172C95865F0016E958 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		437D891A2C9586600016E958 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		437D89202C9586600016E958 /* NerdBookiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NerdBookiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		437D89242C9586600016E958 /* NerdBookiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookiOSTests.swift; sourceTree = "<group>"; };
+		437D892A2C9586600016E958 /* NerdBookiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NerdBookiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		437D892E2C9586600016E958 /* NerdBookiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookiOSUITests.swift; sourceTree = "<group>"; };
+		437D89302C9586600016E958 /* NerdBookiOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookiOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		437D893C2C9588250016E958 /* SharedLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLogic.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		437853982CA008CE005EDD43 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4378537D2CA008CB005EDD43 /* WordOfTheDayExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		437853842CA008CB005EDD43 /* WordOfTheDay */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (437853982CA008CE005EDD43 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WordOfTheDay; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		432E5D5E2C8A36CB007E7397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4331918C2CA5EC050062A5C2 /* FeedKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		432E5D6F2C8A36CF007E7397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		432E5D792C8A36CF007E7397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4378537B2CA008CB005EDD43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				433191902CA5EC690062A5C2 /* FeedKit in Frameworks */,
+				437853832CA008CB005EDD43 /* SwiftUI.framework in Frameworks */,
+				437853812CA008CB005EDD43 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D890E2C95865D0016E958 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4331918E2CA5EC610062A5C2 /* FeedKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D891D2C9586600016E958 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D89272C9586600016E958 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		432E5D582C8A36CA007E7397 = {
+			isa = PBXGroup;
+			children = (
+				437853A42CA09CCF005EDD43 /* WordOfTheDayExtension.entitlements */,
+				432E5D632C8A36CB007E7397 /* NerdBook */,
+				432E5D752C8A36CF007E7397 /* NerdBookTests */,
+				432E5D7F2C8A36CF007E7397 /* NerdBookUITests */,
+				437D89122C95865D0016E958 /* NerdBookiOS */,
+				437D89232C9586600016E958 /* NerdBookiOSTests */,
+				437D892D2C9586600016E958 /* NerdBookiOSUITests */,
+				437D893B2C9587FF0016E958 /* Shared */,
+				437853842CA008CB005EDD43 /* WordOfTheDay */,
+				4378537F2CA008CB005EDD43 /* Frameworks */,
+				432E5D622C8A36CB007E7397 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		432E5D622C8A36CB007E7397 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				432E5D612C8A36CB007E7397 /* NerdBook.app */,
+				432E5D722C8A36CF007E7397 /* NerdBookTests.xctest */,
+				432E5D7C2C8A36CF007E7397 /* NerdBookUITests.xctest */,
+				437D89112C95865D0016E958 /* NerdBookiOS.app */,
+				437D89202C9586600016E958 /* NerdBookiOSTests.xctest */,
+				437D892A2C9586600016E958 /* NerdBookiOSUITests.xctest */,
+				4378537E2CA008CB005EDD43 /* WordOfTheDayExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		432E5D632C8A36CB007E7397 /* NerdBook */ = {
+			isa = PBXGroup;
+			children = (
+				432E5D642C8A36CB007E7397 /* NerdBookApp.swift */,
+				432E5D662C8A36CB007E7397 /* ContentView.swift */,
+				432E5D682C8A36CD007E7397 /* Assets.xcassets */,
+				432E5D6D2C8A36CD007E7397 /* NerdBook.entitlements */,
+				432E5D6A2C8A36CD007E7397 /* Preview Content */,
+			);
+			path = NerdBook;
+			sourceTree = "<group>";
+		};
+		432E5D6A2C8A36CD007E7397 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				432E5D6B2C8A36CD007E7397 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		432E5D752C8A36CF007E7397 /* NerdBookTests */ = {
+			isa = PBXGroup;
+			children = (
+				432E5D762C8A36CF007E7397 /* NerdBookTests.swift */,
+			);
+			path = NerdBookTests;
+			sourceTree = "<group>";
+		};
+		432E5D7F2C8A36CF007E7397 /* NerdBookUITests */ = {
+			isa = PBXGroup;
+			children = (
+				432E5D802C8A36CF007E7397 /* NerdBookUITests.swift */,
+				432E5D822C8A36CF007E7397 /* NerdBookUITestsLaunchTests.swift */,
+			);
+			path = NerdBookUITests;
+			sourceTree = "<group>";
+		};
+		4378537F2CA008CB005EDD43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				437853802CA008CB005EDD43 /* WidgetKit.framework */,
+				437853822CA008CB005EDD43 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		437D89122C95865D0016E958 /* NerdBookiOS */ = {
+			isa = PBXGroup;
+			children = (
+				437853A32CA09C87005EDD43 /* NerdBookiOS.entitlements */,
+				437853A22CA0816F005EDD43 /* Info.plist */,
+				437D89132C95865D0016E958 /* NerdBookiOSApp.swift */,
+				437D89152C95865D0016E958 /* ContentView.swift */,
+				432CFFA32CA951BC00884E5E /* SheetView.swift */,
+				432E62422CADD3FD00F1F166 /* TriggerWordsView.swift */,
+				437D89172C95865F0016E958 /* Assets.xcassets */,
+				437D89192C9586600016E958 /* Preview Content */,
+			);
+			path = NerdBookiOS;
+			sourceTree = "<group>";
+		};
+		437D89192C9586600016E958 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				437D891A2C9586600016E958 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		437D89232C9586600016E958 /* NerdBookiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				437D89242C9586600016E958 /* NerdBookiOSTests.swift */,
+			);
+			path = NerdBookiOSTests;
+			sourceTree = "<group>";
+		};
+		437D892D2C9586600016E958 /* NerdBookiOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				437D892E2C9586600016E958 /* NerdBookiOSUITests.swift */,
+				437D89302C9586600016E958 /* NerdBookiOSUITestsLaunchTests.swift */,
+			);
+			path = NerdBookiOSUITests;
+			sourceTree = "<group>";
+		};
+		437D893B2C9587FF0016E958 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4312EA3C2CB3BAE000CAB5C3 /* SharedData.swift */,
+				437D893C2C9588250016E958 /* SharedLogic.swift */,
+				4312EA382CB316E000CAB5C3 /* WaveView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		432E5D602C8A36CB007E7397 /* NerdBook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 432E5D862C8A36CF007E7397 /* Build configuration list for PBXNativeTarget "NerdBook" */;
+			buildPhases = (
+				432E5D5D2C8A36CB007E7397 /* Sources */,
+				432E5D5E2C8A36CB007E7397 /* Frameworks */,
+				432E5D5F2C8A36CB007E7397 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NerdBook;
+			productName = NerdBook;
+			productReference = 432E5D612C8A36CB007E7397 /* NerdBook.app */;
+			productType = "com.apple.product-type.application";
+		};
+		432E5D712C8A36CF007E7397 /* NerdBookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 432E5D892C8A36CF007E7397 /* Build configuration list for PBXNativeTarget "NerdBookTests" */;
+			buildPhases = (
+				432E5D6E2C8A36CF007E7397 /* Sources */,
+				432E5D6F2C8A36CF007E7397 /* Frameworks */,
+				432E5D702C8A36CF007E7397 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				432E5D742C8A36CF007E7397 /* PBXTargetDependency */,
+			);
+			name = NerdBookTests;
+			productName = NerdBookTests;
+			productReference = 432E5D722C8A36CF007E7397 /* NerdBookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		432E5D7B2C8A36CF007E7397 /* NerdBookUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 432E5D8C2C8A36CF007E7397 /* Build configuration list for PBXNativeTarget "NerdBookUITests" */;
+			buildPhases = (
+				432E5D782C8A36CF007E7397 /* Sources */,
+				432E5D792C8A36CF007E7397 /* Frameworks */,
+				432E5D7A2C8A36CF007E7397 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				432E5D7E2C8A36CF007E7397 /* PBXTargetDependency */,
+			);
+			name = NerdBookUITests;
+			productName = NerdBookUITests;
+			productReference = 432E5D7C2C8A36CF007E7397 /* NerdBookUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		4378537D2CA008CB005EDD43 /* WordOfTheDayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 437853992CA008CE005EDD43 /* Build configuration list for PBXNativeTarget "WordOfTheDayExtension" */;
+			buildPhases = (
+				4378537A2CA008CB005EDD43 /* Sources */,
+				4378537B2CA008CB005EDD43 /* Frameworks */,
+				4378537C2CA008CB005EDD43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				437853842CA008CB005EDD43 /* WordOfTheDay */,
+			);
+			name = WordOfTheDayExtension;
+			packageProductDependencies = (
+				4331918F2CA5EC690062A5C2 /* FeedKit */,
+			);
+			productName = WordOfTheDayExtension;
+			productReference = 4378537E2CA008CB005EDD43 /* WordOfTheDayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		437D89102C95865D0016E958 /* NerdBookiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 437D89382C9586600016E958 /* Build configuration list for PBXNativeTarget "NerdBookiOS" */;
+			buildPhases = (
+				437D890D2C95865D0016E958 /* Sources */,
+				437D890E2C95865D0016E958 /* Frameworks */,
+				437D890F2C95865D0016E958 /* Resources */,
+				437853952CA008CE005EDD43 /* Embed Foundation Extensions */,
+				437853A92CA49756005EDD43 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				437853932CA008CE005EDD43 /* PBXTargetDependency */,
+			);
+			name = NerdBookiOS;
+			productName = NerdBookiOS;
+			productReference = 437D89112C95865D0016E958 /* NerdBookiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		437D891F2C9586600016E958 /* NerdBookiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 437D89392C9586600016E958 /* Build configuration list for PBXNativeTarget "NerdBookiOSTests" */;
+			buildPhases = (
+				437D891C2C9586600016E958 /* Sources */,
+				437D891D2C9586600016E958 /* Frameworks */,
+				437D891E2C9586600016E958 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				437D89222C9586600016E958 /* PBXTargetDependency */,
+			);
+			name = NerdBookiOSTests;
+			productName = NerdBookiOSTests;
+			productReference = 437D89202C9586600016E958 /* NerdBookiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		437D89292C9586600016E958 /* NerdBookiOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 437D893A2C9586600016E958 /* Build configuration list for PBXNativeTarget "NerdBookiOSUITests" */;
+			buildPhases = (
+				437D89262C9586600016E958 /* Sources */,
+				437D89272C9586600016E958 /* Frameworks */,
+				437D89282C9586600016E958 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				437D892C2C9586600016E958 /* PBXTargetDependency */,
+			);
+			name = NerdBookiOSUITests;
+			productName = NerdBookiOSUITests;
+			productReference = 437D892A2C9586600016E958 /* NerdBookiOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		432E5D592C8A36CA007E7397 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					432E5D602C8A36CB007E7397 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					432E5D712C8A36CF007E7397 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 432E5D602C8A36CB007E7397;
+					};
+					432E5D7B2C8A36CF007E7397 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 432E5D602C8A36CB007E7397;
+					};
+					4378537D2CA008CB005EDD43 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					437D89102C95865D0016E958 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					437D891F2C9586600016E958 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 437D89102C95865D0016E958;
+					};
+					437D89292C9586600016E958 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 437D89102C95865D0016E958;
+					};
+				};
+			};
+			buildConfigurationList = 432E5D5C2C8A36CA007E7397 /* Build configuration list for PBXProject "NerdBook" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 432E5D582C8A36CA007E7397;
+			packageReferences = (
+				4331918A2CA5EC050062A5C2 /* XCRemoteSwiftPackageReference "FeedKit" */,
+			);
+			productRefGroup = 432E5D622C8A36CB007E7397 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				432E5D602C8A36CB007E7397 /* NerdBook */,
+				432E5D712C8A36CF007E7397 /* NerdBookTests */,
+				432E5D7B2C8A36CF007E7397 /* NerdBookUITests */,
+				437D89102C95865D0016E958 /* NerdBookiOS */,
+				437D891F2C9586600016E958 /* NerdBookiOSTests */,
+				437D89292C9586600016E958 /* NerdBookiOSUITests */,
+				4378537D2CA008CB005EDD43 /* WordOfTheDayExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		432E5D5F2C8A36CB007E7397 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				432E5D6C2C8A36CD007E7397 /* Preview Assets.xcassets in Resources */,
+				432E5D692C8A36CD007E7397 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		432E5D702C8A36CF007E7397 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		432E5D7A2C8A36CF007E7397 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4378537C2CA008CB005EDD43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D890F2C95865D0016E958 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				437D891B2C9586600016E958 /* Preview Assets.xcassets in Resources */,
+				437D893F2C95886B0016E958 /* Assets.xcassets in Resources */,
+				437D89182C95865F0016E958 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D891E2C9586600016E958 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D89282C9586600016E958 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		432E5D5D2C8A36CB007E7397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				432E5D672C8A36CB007E7397 /* ContentView.swift in Sources */,
+				4312EA3A2CB316EA00CAB5C3 /* WaveView.swift in Sources */,
+				432E5D652C8A36CB007E7397 /* NerdBookApp.swift in Sources */,
+				4312EA3D2CB3BAE400CAB5C3 /* SharedData.swift in Sources */,
+				437D893D2C9588250016E958 /* SharedLogic.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		432E5D6E2C8A36CF007E7397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				432E5D772C8A36CF007E7397 /* NerdBookTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		432E5D782C8A36CF007E7397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				432E5D832C8A36CF007E7397 /* NerdBookUITestsLaunchTests.swift in Sources */,
+				432E5D812C8A36CF007E7397 /* NerdBookUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4378537A2CA008CB005EDD43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4378539A2CA0164C005EDD43 /* SharedLogic.swift in Sources */,
+				4312EA3F2CB3BAE400CAB5C3 /* SharedData.swift in Sources */,
+				4312EA392CB316EA00CAB5C3 /* WaveView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D890D2C95865D0016E958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				437D89162C95865D0016E958 /* ContentView.swift in Sources */,
+				4312EA3E2CB3BAE400CAB5C3 /* SharedData.swift in Sources */,
+				437D89142C95865D0016E958 /* NerdBookiOSApp.swift in Sources */,
+				432CFFA42CA951BC00884E5E /* SheetView.swift in Sources */,
+				4312EA3B2CB316EA00CAB5C3 /* WaveView.swift in Sources */,
+				437D893E2C9588450016E958 /* SharedLogic.swift in Sources */,
+				432E62432CADD40600F1F166 /* TriggerWordsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D891C2C9586600016E958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				437D89252C9586600016E958 /* NerdBookiOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437D89262C9586600016E958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				437D89312C9586600016E958 /* NerdBookiOSUITestsLaunchTests.swift in Sources */,
+				437D892F2C9586600016E958 /* NerdBookiOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		432E5D742C8A36CF007E7397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 432E5D602C8A36CB007E7397 /* NerdBook */;
+			targetProxy = 432E5D732C8A36CF007E7397 /* PBXContainerItemProxy */;
+		};
+		432E5D7E2C8A36CF007E7397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 432E5D602C8A36CB007E7397 /* NerdBook */;
+			targetProxy = 432E5D7D2C8A36CF007E7397 /* PBXContainerItemProxy */;
+		};
+		437853932CA008CE005EDD43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4378537D2CA008CB005EDD43 /* WordOfTheDayExtension */;
+			targetProxy = 437853922CA008CE005EDD43 /* PBXContainerItemProxy */;
+		};
+		437D89222C9586600016E958 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 437D89102C95865D0016E958 /* NerdBookiOS */;
+			targetProxy = 437D89212C9586600016E958 /* PBXContainerItemProxy */;
+		};
+		437D892C2C9586600016E958 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 437D89102C95865D0016E958 /* NerdBookiOS */;
+			targetProxy = 437D892B2C9586600016E958 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		432E5D842C8A36CF007E7397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		432E5D852C8A36CF007E7397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		432E5D872C8A36CF007E7397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = NerdBook/NerdBook.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 7;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"NerdBook/Preview Content\"";
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "NerdBook Desktop";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		432E5D882C8A36CF007E7397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = NerdBook/NerdBook.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 7;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"NerdBook/Preview Content\"";
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "NerdBook Desktop";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		432E5D8A2C8A36CF007E7397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NerdBook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NerdBook";
+			};
+			name = Debug;
+		};
+		432E5D8B2C8A36CF007E7397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NerdBook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NerdBook";
+			};
+			name = Release;
+		};
+		432E5D8D2C8A36CF007E7397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = NerdBook;
+			};
+			name = Debug;
+		};
+		432E5D8E2C8A36CF007E7397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = NerdBook;
+			};
+			name = Release;
+		};
+		437853962CA008CE005EDD43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WordOfTheDayExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WordOfTheDay/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WordOfTheDay;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookiOS.WordOfTheDay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		437853972CA008CE005EDD43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WordOfTheDayExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WordOfTheDay/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WordOfTheDay;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookiOS.WordOfTheDay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		437D89322C9586600016E958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = NerdBookiOS/NerdBookiOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_ASSET_PATHS = "\"NerdBookiOS/Preview Content\"";
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NerdBookiOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NerdBook;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Enable microphone for waveform animation. ";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		437D89332C9586600016E958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = NerdBookiOS/NerdBookiOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_ASSET_PATHS = "\"NerdBookiOS/Preview Content\"";
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NerdBookiOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NerdBook;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Enable microphone for waveform animation. ";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		437D89342C9586600016E958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NerdBookiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NerdBookiOS";
+			};
+			name = Debug;
+		};
+		437D89352C9586600016E958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NerdBookiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NerdBookiOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		437D89362C9586600016E958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NerdBookiOS;
+			};
+			name = Debug;
+		};
+		437D89372C9586600016E958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HBMCF3J59V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBookiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NerdBookiOS;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		432E5D5C2C8A36CA007E7397 /* Build configuration list for PBXProject "NerdBook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				432E5D842C8A36CF007E7397 /* Debug */,
+				432E5D852C8A36CF007E7397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		432E5D862C8A36CF007E7397 /* Build configuration list for PBXNativeTarget "NerdBook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				432E5D872C8A36CF007E7397 /* Debug */,
+				432E5D882C8A36CF007E7397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		432E5D892C8A36CF007E7397 /* Build configuration list for PBXNativeTarget "NerdBookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				432E5D8A2C8A36CF007E7397 /* Debug */,
+				432E5D8B2C8A36CF007E7397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		432E5D8C2C8A36CF007E7397 /* Build configuration list for PBXNativeTarget "NerdBookUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				432E5D8D2C8A36CF007E7397 /* Debug */,
+				432E5D8E2C8A36CF007E7397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		437853992CA008CE005EDD43 /* Build configuration list for PBXNativeTarget "WordOfTheDayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				437853962CA008CE005EDD43 /* Debug */,
+				437853972CA008CE005EDD43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		437D89382C9586600016E958 /* Build configuration list for PBXNativeTarget "NerdBookiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				437D89322C9586600016E958 /* Debug */,
+				437D89332C9586600016E958 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		437D89392C9586600016E958 /* Build configuration list for PBXNativeTarget "NerdBookiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				437D89342C9586600016E958 /* Debug */,
+				437D89352C9586600016E958 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		437D893A2C9586600016E958 /* Build configuration list for PBXNativeTarget "NerdBookiOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				437D89362C9586600016E958 /* Debug */,
+				437D89372C9586600016E958 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4331918A2CA5EC050062A5C2 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4331918B2CA5EC050062A5C2 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4331918A2CA5EC050062A5C2 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		4331918D2CA5EC610062A5C2 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4331918A2CA5EC050062A5C2 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		4331918F2CA5EC690062A5C2 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4331918A2CA5EC050062A5C2 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 432E5D592C8A36CA007E7397 /* Project object */;
+}

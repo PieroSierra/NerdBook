@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>NerdBook.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>NerdBookiOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>WordOfTheDayExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>432E5D602C8A36CB007E7397</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>432E5D712C8A36CF007E7397</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>432E5D7B2C8A36CF007E7397</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4378537D2CA008CB005EDD43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>437D89102C95865D0016E958</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>437D891F2C9586600016E958</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>437D89292C9586600016E958</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
