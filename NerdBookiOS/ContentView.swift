@@ -63,6 +63,7 @@ struct ContentView: View {
                         text: $query
                     )
                     .focused($isTextFieldFocused)
+                    /*
                     .onChange(of: query) { newValue in
                         if isUserSelecting {
                             isUserSelecting = false  // Reset the flag after selection
@@ -71,7 +72,17 @@ struct ContentView: View {
                         } else {
                             dataMuse.suggestions.removeAll()
                         }
+                    }*/
+                    .onChange(of: query) {
+                        if isUserSelecting {
+                            isUserSelecting = false  // Reset the flag after selection
+                        } else if !query.isEmpty {
+                            dataMuse.fetchSuggestions(for: query)  // Only fetch suggestions if not selecting
+                        } else {
+                            dataMuse.suggestions.removeAll()
+                        }
                     }
+
                     .onSubmit {
                         dataMuse.debounceTimer?.invalidate()
                         dataMuse.fetchSynonyms(query: query)
@@ -290,9 +301,35 @@ struct ContentView: View {
             .presentationDragIndicator(.visible)
             .presentationDetents([.medium, .large ]).presentationBackground(.ultraThinMaterial)
         }
+        /*
+         .onChange(of: initialWord) { newWord in
+         if let word = newWord {
+         print("ContentView received initialWord: \(word)")
+         query = word
+         isUserSelecting = true // dismiss autosuggest
+         dismissKeyboard() // dismiss keyboard
+         initialWord = nil  // Reset after use
+         appState.showingTriggerSheet = false // close TriggerSheet if needed
+         appState.showingAboutSheet = false // close AboutSheet if needed
+         dataMuse.fetchSynonyms(query: word)
+         shouldRefreshRapView = true // Set the flag when a new query word is selected
+         resetAnimationStatus()
+         }
+         }
+        
+        // Update the flag when the selected segment changes
+        
+         .onChange(of: selectedSegment) { newSegment in
+         resetAnimationStatus()
+         if newSegment == 3 { // Rap segment
+         shouldRefreshRapView = true
+         }
+         }*/
+        
+        
         // Handle incoming URL with initialWord
-        .onChange(of: initialWord) { newWord in
-            if let word = newWord {
+        .onChange(of: initialWord) {
+            if let word = initialWord {
                 print("ContentView received initialWord: \(word)")
                 query = word
                 isUserSelecting = true // dismiss autosuggest
@@ -305,13 +342,14 @@ struct ContentView: View {
                 resetAnimationStatus()
             }
         }
-        // Update the flag when the selected segment changes
-        .onChange(of: selectedSegment) { newSegment in
+        
+        .onChange(of: selectedSegment) {
             resetAnimationStatus()
-            if newSegment == 3 { // Rap segment
+            if selectedSegment == 3 { // Rap segment
                 shouldRefreshRapView = true
             }
         }
+
         .overlay(infoButton, alignment: .topTrailing)
     }
     
