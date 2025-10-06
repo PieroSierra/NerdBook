@@ -65,6 +65,7 @@ struct WordOfTheDayEntryView: View {
     var body: some View {
         ZStack {
             // Logo in corner
+            /*
             VStack {
                 HStack {
                     Spacer()
@@ -73,36 +74,35 @@ struct WordOfTheDayEntryView: View {
                         .frame(maxWidth:25, maxHeight:25)
                 }
                 Spacer()
-            }
+            }*/
 
             // Main Content
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     Text("“")
-                        .font(.custom("American Typewriter", size: 30))
+                        .font(.custom("American Typewriter", size: widgetFamily == .systemMedium ? 30 : 25))
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -5))
                     Text("\(entry.word)")
                         .padding(.bottom, 0)
-                        .font(.custom("American Typewriter", size: 18))
-                        .lineLimit(1) // Restricts the text to one line
+                        .font(.custom("American Typewriter", size: widgetFamily == .systemMedium ? 18 : 16))
+                        .lineLimit(1) // Restricts the text to 1 line
                         .truncationMode(.tail) // Truncates with ellipsis if it overflows
                 }
-                .padding(EdgeInsets(top: -10, leading: 0, bottom: 0, trailing: 0))
-                Divider()
-                    .padding(EdgeInsets(top: -7, leading: 0, bottom: 0, trailing: 0))
+                
+                // Custom divider that respects container padding
+                Rectangle()
+                    .fill(Color.gray.opacity(0.4))
+                    .frame(height: 1)
                 
                 Text("\(entry.definition)")
-                    .font(.subheadline)
-                    .lineLimit(3) // Restricts the text to one line
+                    .font(.custom("American Typewriter", size: widgetFamily == .systemMedium ? 13 : 12))
+                    .lineLimit(5) // Restricts the text to 4 lines
                     .truncationMode(.tail) // Truncates with ellipsis if it overflows
- 
-/*                Text("\(entry.synonyms.joined(separator: ", "))")
-                    .font(.subheadline)
-                    .lineLimit(3) // Restricts the text to one line
-                    .truncationMode(.tail) // Truncates with ellipsis if it overflows*/
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+
             }
-            .padding(paddingForWidgetSize())
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(EdgeInsets(top: 0, leading: paddingForWidgetSize(), bottom: 0, trailing: paddingForWidgetSize()))
          }
         .containerBackground(for: .widget) {
             Color.clear
@@ -116,7 +116,7 @@ struct WordOfTheDayEntryView: View {
         case .systemSmall:
             return 4
         case .systemMedium:
-            return 12
+            return 6
         case .systemLarge:
             return 24
         default:
@@ -125,9 +125,11 @@ struct WordOfTheDayEntryView: View {
     }
     
     private func createWidgetURL() -> URL? {
-        let urlString = "nerdbook://\(entry.word.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")"
-        print("Widget URL: \(urlString)")
-        return URL(string: urlString)
+        let urlString = "nerdbook://\(entry.word.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")?showTrigger=true"
+        print("🔴 Widget creating URL: \(urlString)")
+        let url = URL(string: urlString)
+        print("🔴 Widget URL created: \(url?.absoluteString ?? "nil")")
+        return url
     }
     
 }
@@ -150,7 +152,7 @@ struct WordOfTheDay: Widget {
 #Preview(as: .systemSmall) {
     WordOfTheDay()
 } timeline: {
-    SimpleEntry(date: .now, word: "serendipity", definition: "A combination of events which have come together by chance to make a surprisingly good or wonderful outcome.", isPlaceholder: false)
+    SimpleEntry(date: .now, word: "serendipity", definition: "A combination of events which have come together by chance to make a surprisingly good or wonderful outcome. ❡ A feeling of extreme happiness or cheerfulness, especially related to the acquisition or expectation of something good.", isPlaceholder: false)
     SimpleEntry(date: .now, word: "ephemeral", definition: "To get lucky", isPlaceholder: false)
     SimpleEntry(date: .now, word: "short", definition: "To get lucky",  isPlaceholder: false)
     SimpleEntry(date: .now, word: "joy", definition: "A feeling of extreme happiness or cheerfulness, especially related to the acquisition or expectation of something good.", isPlaceholder: false)
@@ -160,7 +162,7 @@ struct WordOfTheDay: Widget {
 #Preview(as: .systemMedium) {
     WordOfTheDay()
 } timeline: {
-    SimpleEntry(date: .now, word: "serendipity", definition: "A combination of events which have come together by chance to make a surprisingly good or wonderful outcome.", isPlaceholder: false)
+    SimpleEntry(date: .now, word: "serendipity", definition: "A combination of events which have come together by chance to make a surprisingly good or wonderful outcome. ❡ A feeling of extreme happiness or cheerfulness, especially related to the acquisition or expectation of something good.", isPlaceholder: false)
     SimpleEntry(date: .now, word: "ephemeral", definition: "To get lucky", isPlaceholder: false)
     SimpleEntry(date: .now, word: "joy", definition: "A feeling of extreme happiness or cheerfulness, especially related to the acquisition or expectation of something good.", isPlaceholder: false)
     SimpleEntry(date: .now, word: "short", definition: "The feeling of happiness", isPlaceholder: false)

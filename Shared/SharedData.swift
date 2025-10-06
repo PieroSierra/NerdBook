@@ -1,4 +1,3 @@
-//
 //  SharedData.swift
 //  NerdBook
 //
@@ -328,8 +327,10 @@ func fetchDefinitionForWidget(query: String, completion: @escaping (String) -> V
     let definitionTask = URLSession.shared.dataTask(with: widgetDefinitionURL) { data, response, error in
         DispatchQueue.main.async {
             if let data = data, let decodedResponse = try? JSONDecoder().decode([Word].self, from: data), let firstWord = decodedResponse.first, let defs = firstWord.defs {
-                let definition = defs.map { $0.components(separatedBy: "\t").last ?? "" }.joined(separator: ", ")
-                completion(definition)
+                // Join all definitions with commas, removing the word type prefix
+                let definitions = defs.map { $0.components(separatedBy: "\t").last ?? "" }
+                let combinedDefinition = definitions.joined(separator: " ❡ ")
+                completion(combinedDefinition)
             } else {
                 completion("No definition available")
             }
