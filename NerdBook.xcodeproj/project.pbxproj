@@ -39,6 +39,8 @@
 		437D893D2C9588250016E958 /* SharedLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D893C2C9588250016E958 /* SharedLogic.swift */; };
 		437D893E2C9588450016E958 /* SharedLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D893C2C9588250016E958 /* SharedLogic.swift */; };
 		437D893F2C95886B0016E958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432E5D682C8A36CD007E7397 /* Assets.xcassets */; };
+		43F192AF2EE32BA100FC42BC /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 43F192AE2EE32B9B00FC42BC /* Readme.md */; };
+		43F193342EE32C3700FC42BC /* 1.webp in Resources */ = {isa = PBXBuildFile; fileRef = 43F193332EE32C3700FC42BC /* 1.webp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,8 @@
 		437D892E2C9586600016E958 /* NerdBookiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookiOSUITests.swift; sourceTree = "<group>"; };
 		437D89302C9586600016E958 /* NerdBookiOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookiOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		437D893C2C9588250016E958 /* SharedLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLogic.swift; sourceTree = "<group>"; };
+		43F192AE2EE32B9B00FC42BC /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		43F193332EE32C3700FC42BC /* 1.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.webp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -213,6 +217,7 @@
 		432E5D582C8A36CA007E7397 = {
 			isa = PBXGroup;
 			children = (
+				43F192AE2EE32B9B00FC42BC /* Readme.md */,
 				437853A42CA09CCF005EDD43 /* WordOfTheDayExtension.entitlements */,
 				432E5D632C8A36CB007E7397 /* NerdBook */,
 				432E5D752C8A36CF007E7397 /* NerdBookTests */,
@@ -224,6 +229,7 @@
 				437853842CA008CB005EDD43 /* WordOfTheDay */,
 				4378537F2CA008CB005EDD43 /* Frameworks */,
 				432E5D622C8A36CB007E7397 /* Products */,
+				43F193332EE32C3700FC42BC /* 1.webp */,
 			);
 			sourceTree = "<group>";
 		};
@@ -542,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				432E5D6C2C8A36CD007E7397 /* Preview Assets.xcassets in Resources */,
+				43F193342EE32C3700FC42BC /* 1.webp in Resources */,
 				432E5D692C8A36CD007E7397 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +571,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F192AF2EE32BA100FC42BC /* Readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
