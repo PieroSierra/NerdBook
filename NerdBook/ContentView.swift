@@ -254,8 +254,10 @@ struct ContentView: View {
         } // END OF MAIN Z STACK VIEW
         .padding()
         .toolbar {
-            // Toolbar is minimalist - no content items needed
-            // The Liquid Glass styling is applied via modifier below
+            ToolbarItem(placement: .principal) {
+                Text("NerdBook")
+                    .font(.headline)
+            }
         }
         .frame(minWidth: 680, minHeight: 400)  // Ensure the min size is respected in the view
         .background(WindowAccessor { window in

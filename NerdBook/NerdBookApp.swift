@@ -42,13 +42,14 @@ struct NerdBookApp: App {
             //                .background(TranslucentBackgroundView())
                 .onAppear {
                     if let window = NSApplication.shared.windows.first {
-                        // Hide the title bar text while keeping the toolbar area
-                        window.titleVisibility = .hidden
-                        window.titlebarAppearsTransparent = true
-
-                        // Configure toolbar appearance
+                        // Configure window for Liquid Glass toolbar
                         window.styleMask.insert(.titled)
                         window.styleMask.insert(.fullSizeContentView)
+
+                        // Create toolbar to enable Liquid Glass styling
+                        let toolbar = NSToolbar()
+                        toolbar.showsBaselineSeparator = false
+                        window.toolbar = toolbar
                     }
                 }
         }
