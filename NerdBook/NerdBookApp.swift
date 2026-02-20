@@ -9,6 +9,31 @@ import SwiftUI
 import Cocoa
 import AppKit
 
+// MARK: - Liquid Glass Extensions (macOS Tahoe support)
+
+extension View {
+    /// Applies the system-managed Liquid Glass toolbar surface on macOS 26+.
+    ///
+    /// This must be attached to the view that owns `.toolbar { ... }` so the OS can
+    /// treat it as window chrome. We intentionally do not hardcode blur/opacity.
+    @ViewBuilder
+    func nerdBookWindowToolbarLiquidGlass() -> some View {
+        if #available(macOS 26.0, *) {
+            self
+                .toolbarBackground(.visible, for: .windowToolbar)
+        } else {
+            self
+        }
+    }
+}
+
+extension Scene {
+    /// Use unified toolbar style which participates in Tahoe's Liquid Glass chrome on macOS 26+.
+    func nerdBookWindowToolbarStyleForTahoe() -> some Scene {
+        self.windowToolbarStyle(.unified)
+    }
+}
+
 @main
 struct NerdBookApp: App {
     var body: some Scene {
@@ -30,6 +55,7 @@ struct NerdBookApp: App {
                     }
                 }
         }
+        .windowToolbarStyle(.unified)
     }
 }
 

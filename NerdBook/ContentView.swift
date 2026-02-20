@@ -11,9 +11,13 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
+            // White background for the entire window
+            Color.white
+                .ignoresSafeArea()
+
+            // Clear overlay for tap detection
             Color.clear // Use clear color to detect taps
                 .contentShape(Rectangle()) // This makes the entire area tappable
-                .ignoresSafeArea()
                 .frame(minWidth: 600, minHeight: 400)
                 .onTapGesture {
                     isTextFieldFocused = false // Dismiss keyboard when tapping the background
@@ -51,7 +55,7 @@ struct ContentView: View {
                     // Column for regular synonyms
                     Spacer().frame(width:20)
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Normal 🙂")
+                        Text("🙂 Normal")
                             .font(.headline)
                         ScrollView {
                             VStack(alignment: .leading, spacing: 5) {
@@ -79,7 +83,7 @@ struct ContentView: View {
                     
                     // Column for most lyrical synonyms
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Lyrical 😇")
+                        Text("😇 Poetic")
                             .font(.headline)
                         ScrollView {
                             VStack(alignment: .leading, spacing: 5) {
@@ -107,7 +111,7 @@ struct ContentView: View {
                     
                     // Column for most pretentious synonyms
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Pretentious 🤓")
+                        Text("🤓 Nerdy")
                             .font(.headline)
                         ScrollView {
                             VStack(alignment: .leading, spacing: 5) {
@@ -259,6 +263,7 @@ struct ContentView: View {
             window.minSize = NSSize(width: 600, height: 400)  // Set the minimum size
         })
         //.background(TranslucentBackgroundView())
+        .nerdBookWindowToolbarLiquidGlass()
     }
     
     //  private func dismissKeyboard() {
