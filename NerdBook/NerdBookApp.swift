@@ -43,6 +43,8 @@ struct NerdBookApp: App {
                 .onAppear {
                     if let window = NSApplication.shared.windows.first {
                         // Configure window for Liquid Glass toolbar
+                        window.title = ""  // Clear the window title
+                        window.titleVisibility = .hidden  // Hide the title bar
                         window.styleMask.insert(.titled)
                         window.styleMask.insert(.fullSizeContentView)
 

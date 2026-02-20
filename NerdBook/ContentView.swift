@@ -254,9 +254,11 @@ struct ContentView: View {
         } // END OF MAIN Z STACK VIEW
         .padding()
         .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("NerdBook")
-                    .font(.headline)
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {}) {
+                    Image(systemName: "info.circle")
+                }
+                .help("About NerdBook")
             }
         }
         .frame(minWidth: 680, minHeight: 400)  // Ensure the min size is respected in the view
