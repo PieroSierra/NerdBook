@@ -254,13 +254,14 @@ struct ContentView: View {
         } // END OF MAIN Z STACK VIEW
         .padding()
         .toolbar {
-            Image("LogoSqFull")
+            // Toolbar is minimalist - no content items needed
+            // The Liquid Glass styling is applied via modifier below
         }
-        .frame(minWidth: 600, minHeight: 400)  // Ensure the min size is respected in the view
+        .frame(minWidth: 680, minHeight: 400)  // Ensure the min size is respected in the view
         .background(WindowAccessor { window in
             // Set the initial size of the window when it is first created
-            window.setContentSize(NSSize(width: 600, height: 400))
-            window.minSize = NSSize(width: 600, height: 400)  // Set the minimum size
+            window.setContentSize(NSSize(width: 680, height: 400))
+            window.minSize = NSSize(width: 680, height: 400)  // Set the minimum size
         })
         //.background(TranslucentBackgroundView())
         .nerdBookWindowToolbarLiquidGlass()

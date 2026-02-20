@@ -42,16 +42,13 @@ struct NerdBookApp: App {
             //                .background(TranslucentBackgroundView())
                 .onAppear {
                     if let window = NSApplication.shared.windows.first {
-                        // Enable translucency
-                    //    window.isOpaque = false
-                    //    window.backgroundColor = NSColor.clear
-                    //    window.titlebarAppearsTransparent = true
-                    //    window.titleVisibility = .hidden
-                        
-                        // Ensure toolbar is displayed
+                        // Hide the title bar text while keeping the toolbar area
+                        window.titleVisibility = .hidden
+                        window.titlebarAppearsTransparent = true
+
+                        // Configure toolbar appearance
                         window.styleMask.insert(.titled)
                         window.styleMask.insert(.fullSizeContentView)
-                        window.toolbar = NSToolbar() // Adding a toolbar
                     }
                 }
         }
