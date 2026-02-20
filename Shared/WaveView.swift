@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+
+#if os(iOS)
 import AVFoundation
+#endif
 
 struct Wave: Shape {
     // allow SwiftUI to animate the wave phase
@@ -23,9 +26,9 @@ struct Wave: Shape {
 
     // how much to offset our waves horizontally
     var phase: Double
-    
+
     func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath()
+        var path = Path()
         // calculate some important values up front
         let width = Double(rect.width)
         let height = Double(rect.height)
@@ -39,8 +42,12 @@ struct Wave: Shape {
         // start at the left center
         path.move(to: CGPoint(x: 0, y: midHeight))
 
-        // Use mic input instead of random jump
+        // Use mic input instead of random jump (iOS only)
+        #if os(iOS)
         let amplitude = AudioManager.shared.currentAmplitude
+        #else
+        let amplitude = 1.0
+        #endif
 
         // now count across individual horizontal points one by one
         for x in stride(from: 0, through: width, by: 1) {
@@ -65,10 +72,11 @@ struct Wave: Shape {
             path.addLine(to: CGPoint(x: x, y: y))
         }
 
-        return Path(path.cgPath)
+        return path
     }
 }
 
+#if os(iOS)
 class AudioManager: ObservableObject {
     static let shared = AudioManager()
     private var audioEngine: AVAudioEngine
@@ -120,6 +128,7 @@ class AudioManager: ObservableObject {
         }
     }
 }
+#endif
 
 struct WaveView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass? //detects Orientation
@@ -141,7 +150,7 @@ struct WaveView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct WaveView_Previews: PreviewProvider {
     static var previews: some View {
         WaveView()
     }

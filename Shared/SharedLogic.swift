@@ -183,6 +183,7 @@ func calculateFrequencyThresholds(for words: [Word]) -> (Double, Double) {
     return (sortedFrequencies[lowerIndex], sortedFrequencies[upperIndex])
 }
 
+#if os(iOS)
 class ColorButtonViewModel: ObservableObject {
     @Published var isAnimationComplete: Bool = false
 }
@@ -192,7 +193,7 @@ struct ColorButton: View {
     let fontSize: CGFloat
     let colorScheme: ColorScheme
     let action: () -> Void
-    let onAnimationComplete: () -> Void // Add this line
+    let onAnimationComplete: () -> Void
 
     @State private var isPressed: Bool = false
     @State private var scale: CGFloat = 0.6  // Start with a smaller scale for pop-in effect
@@ -243,7 +244,7 @@ struct FrequencyURLButton: View {
     let thresholds: (Double, Double)
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
-    
+
     private var fontSize: CGFloat {
         switch categorizeFrequency(frequency, thresholds: thresholds) {
         case .regular:
@@ -256,7 +257,7 @@ struct FrequencyURLButton: View {
             return 14
         }
     }
-    
+
     var body: some View {
         ColorButton(
             text: word,
@@ -272,6 +273,7 @@ struct FrequencyURLButton: View {
         )
     }
 }
+#endif
 
 // Create "word - definition" pairs
 func buildWordAndDefinition(wordString: String, defString: String, colorScheme: ColorScheme) -> AttributedString {
