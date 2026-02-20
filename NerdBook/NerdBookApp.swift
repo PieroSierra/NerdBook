@@ -38,22 +38,7 @@ extension Scene {
 struct NerdBookApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView() // Your main view
-            //                .background(TranslucentBackgroundView())
-                .onAppear {
-                    if let window = NSApplication.shared.windows.first {
-                        // Configure window for Liquid Glass toolbar
-                        window.title = ""  // Clear the window title
-                        window.titleVisibility = .hidden  // Hide the title bar
-                        window.styleMask.insert(.titled)
-                        window.styleMask.insert(.fullSizeContentView)
-
-                        // Create toolbar to enable Liquid Glass styling
-                        let toolbar = NSToolbar()
-                        toolbar.showsBaselineSeparator = false
-                        window.toolbar = toolbar
-                    }
-                }
+            ContentView()
         }
         .windowToolbarStyle(.unified)
     }
