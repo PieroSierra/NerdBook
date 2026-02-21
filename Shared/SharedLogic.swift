@@ -214,11 +214,11 @@ struct ColorButton: View {
                 .padding(.horizontal, 10)
                 .padding(.vertical, 5)
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: 20)
                         .fill(pillBackground)
                 )
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: 20)
                         .stroke(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.pinkColor : Color.blueColor, colorScheme == .dark ? Color.blueColor : Color.pinkColor]), startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 2)
                 )
                 .scaleEffect(isPressed ? 1.1 : scale)
