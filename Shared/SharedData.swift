@@ -199,7 +199,7 @@ class DataMuse: ObservableObject {
         let soundsLikeTask = URLSession.shared.dataTask(with: soundsLikeURL) { data, response, error in
             DispatchQueue.main.async {
                 if let data = data, let decodedResponse = try? JSONDecoder().decode([Word].self, from: data) {
-                    self.soundsLikeWords = decodedResponse
+                    self.soundsLikeWords = decodedResponse.filter { $0.word.lowercased() != query.lowercased() }
                 } else {
                     self.soundsLikeWords = [Word(word: "No sound-alike words")]
 ///                    self.soundsLikeWords = [Word(word: "No sound-alike words", numSyllables: nil, frequency: nil, defs: nil, tags: nil)]

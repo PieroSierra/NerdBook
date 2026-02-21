@@ -46,6 +46,7 @@ struct ContentView: View {
                     } onCancel: {
                         dataMuse.debounceTimer?.invalidate()  // Cancel the debounce timer when pressing "ESC"
                         isUserSelecting = true
+                        query = ""  // Clear the search text
                         dataMuse.suggestions.removeAll()  // Hide suggestions after cancellation
                     }
                     .focused($isTextFieldFocused)
@@ -59,13 +60,13 @@ struct ContentView: View {
                         }
                     }
                 }
-                .padding(EdgeInsets(top: 20, leading:40, bottom: 20, trailing: 40))
+                .padding(EdgeInsets(top: 20, leading:30, bottom: 20, trailing: 30))
 
                 // MARK: - Synonym Columns
 
-                HStack(alignment:.top, spacing: 50){
+                HStack(alignment:.top, spacing: 0){
                     SynonymColumnView(
-                        title: "🙂 Normal",
+                        title: "🙂 Synonyms",
                         words: dataMuse.synonyms,
                         colorScheme: colorScheme,
                         onWordSelected: { word in handleWordSelected(word) }
@@ -82,8 +83,14 @@ struct ContentView: View {
                         colorScheme: colorScheme,
                         onWordSelected: { word in handleWordSelected(word) }
                     )
+                    SynonymColumnView(
+                        title: "🎧 Sounds Like",
+                        words: dataMuse.soundsLikeWords,
+                        colorScheme: colorScheme,
+                        onWordSelected: { word in handleWordSelected(word) }
+                    )
                 }
-                .padding(EdgeInsets(top: 0, leading: 80, bottom: 0, trailing: 40))
+                .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 30))
                 .frame(maxWidth: .infinity)
 
                 Spacer()
@@ -225,7 +232,7 @@ struct SynonymColumnView: View {
                 .padding(.bottom, 10)
             }
         }
-        .frame(minWidth: 140, maxWidth: .infinity, alignment: .leading)
+        .frame(minWidth: 150, maxWidth: .infinity, alignment: .leading)
         .clipped()
     }
 }
@@ -255,14 +262,16 @@ struct AutocompleteSuggestionsView: View {
                 onDismiss()
                 return .handled
             }
-            .frame(width:500, height: 120)  // Limit the height of the suggestions list
+            .frame(width: 400, height: 120)  // Limit the height of the suggestions list
             .background(colorScheme == .dark ? Color.black : Color.white)  // Ensure the list has a background color
             .cornerRadius(8)  // Add some corner radius
             .shadow(radius: 10)  // Add shadow to the dropdown
             Spacer()
         } // end VSTACK
+        .frame(maxWidth: .infinity, alignment: .leading)
         .transition(.opacity)  // Smooth transition when showing/hiding
         .padding()
+        .padding(.leading, 20)
 
         VStack {
             Spacer().frame(height: 65)
@@ -347,7 +356,7 @@ struct MacDefinitionCard: View {
             Text(cleanDefinition)
                 .multilineTextAlignment(.center)
                 .padding()
-                .frame(width: 245, height: 120, alignment: .center)
+                .frame(width: 220, height: 136, alignment: .center)
 
             Button {
                 NSPasteboard.general.clearContents()
@@ -367,7 +376,8 @@ struct MacDefinitionCard: View {
         .animation(.bouncy(duration: 0.5), value: scale)
         .background(Color(NSColor.windowBackgroundColor))
         .cornerRadius(15)
-        .font(.custom("American Typewriter", size: 14))
+        .font(.body)
+//        .font(.custom("American Typewriter", size: 14))
         .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.4 : 0.2), radius: 5, x: 0, y: 2)
     }
 }
@@ -409,7 +419,7 @@ struct DefinitionsSheetView: View {
                         .padding()
 
                     let thresholds = calculateFrequencyThresholds(for: triggerWords)
-                    FlowLayout(data: triggerWords.shuffled(), spacing: 5) { triggerWord in
+                    FlowLayout(data: triggerWords.shuffled(), spacing: 0) { triggerWord in
                         ColorButton(
                             text: triggerWord.word,
                             fontSize: fontSize(for: triggerWord.frequency ?? 0.0, thresholds: thresholds),
@@ -427,12 +437,6 @@ struct DefinitionsSheetView: View {
                         .foregroundColor(.secondary)
                         .padding()
                 }
-
-                Button("Dismiss") {
-                    dismiss()
-                }
-                .buttonStyle(GrowingButton())
-                .padding()
             }
             .transition(.opacity)
             .background(Color.clear)
@@ -444,13 +448,13 @@ struct DefinitionsSheetView: View {
     private func fontSize(for frequency: Double, thresholds: (Double, Double)) -> CGFloat {
         switch categorizeFrequency(frequency, thresholds: thresholds) {
         case .regular:
-            return 14
+            return 12
         case .semibold:
-            return 18
+            return 16
         case .bold:
-            return 23
+            return 21
         default:
-            return 14
+            return 12
         }
     }
 
