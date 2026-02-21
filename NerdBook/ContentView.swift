@@ -52,92 +52,88 @@ struct ContentView: View {
                 .padding(EdgeInsets(top: 20, leading:40, bottom: 20, trailing: 40))
                 
                 
-                HStack(alignment:.top){
-                    // Column for regular synonyms
-                    Spacer().frame(width:20)
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("🙂 Normal")
-                            .font(.headline)
-                        ScrollView {
-                            VStack(alignment: .leading, spacing: 5) {
-                                ForEach(dataMuse.synonyms, id: \.word) { synonym in
-                                    Text(synonym.word)
-                                        .font(.body)
-                                        .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
-                                        .lineLimit(1) // Limit to one line
-                                        .truncationMode(.tail) // Use ellipsis at the end if the text is too long
-                                        .fixedSize(horizontal: true, vertical: false)
-                                        .onTapGesture {
-                                            isUserSelecting = true
-                                            query = synonym.word
-                                            dataMuse.fetchSynonyms(query: query) // Immediately trigger search
-                                        }
+                HStack(alignment:.top, spacing: 50){
+                        // Column for regular synonyms
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("🙂 Normal")
+                                .font(.headline)
+                            ScrollView {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    ForEach(dataMuse.synonyms, id: \.word) { synonym in
+                                        Text(synonym.word)
+                                            .font(.body)
+                                            .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
+                                            .lineLimit(1)
+                                            .truncationMode(.tail)
+                                            .fixedSize(horizontal: true, vertical: false)
+                                            .onTapGesture {
+                                                isUserSelecting = true
+                                                query = synonym.word
+                                                dataMuse.fetchSynonyms(query: query)
+                                            }
+                                    }
                                 }
+                                .padding(.bottom, 10)
                             }
-                            .padding(.bottom, 10)
                         }
-                    }
-                    .frame(maxWidth: 140, alignment: .leading)
-                    .clipped()
-                    
-                    Spacer().frame(width: 50)
-                    
-                    // Column for most lyrical synonyms
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("😇 Poetic")
-                            .font(.headline)
-                        ScrollView {
-                            VStack(alignment: .leading, spacing: 5) {
-                                ForEach(dataMuse.lyricalSynonyms, id: \.word) { synonym in
-                                    Text(synonym.word)
-                                        .font(.body)
-                                        .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
-                                        .lineLimit(1) // Limit to one line
-                                        .truncationMode(.tail) // Use ellipsis at the end if the text is too long
-                                        .fixedSize(horizontal: true, vertical: false)
-                                        .onTapGesture {
-                                            isUserSelecting = true
-                                            query = synonym.word
-                                            dataMuse.fetchSynonyms(query: query) // Immediately trigger search
-                                        }
+                        .frame(minWidth: 140, maxWidth: .infinity, alignment: .leading)
+                        .clipped()
+
+                        // Column for most lyrical synonyms
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("😇 Poetic")
+                                .font(.headline)
+                            ScrollView {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    ForEach(dataMuse.lyricalSynonyms, id: \.word) { synonym in
+                                        Text(synonym.word)
+                                            .font(.body)
+                                            .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
+                                            .lineLimit(1)
+                                            .truncationMode(.tail)
+                                            .fixedSize(horizontal: true, vertical: false)
+                                            .onTapGesture {
+                                                isUserSelecting = true
+                                                query = synonym.word
+                                                dataMuse.fetchSynonyms(query: query)
+                                            }
+                                    }
                                 }
+                                .padding(.bottom, 10)
                             }
-                            .padding(.bottom, 10)
                         }
-                    }
-                    .frame(maxWidth: 140, alignment: .leading)
-                    .clipped()
-                    
-                    Spacer().frame(width: 50)
-                    
-                    // Column for most pretentious synonyms
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("🤓 Nerdy")
-                            .font(.headline)
-                        ScrollView {
-                            VStack(alignment: .leading, spacing: 5) {
-                                ForEach(dataMuse.pretentiousSynonyms, id: \.word) { synonym in
-                                    Text(synonym.word)
-                                        .font(.body)
-                                        .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
-                                        .lineLimit(1) // Limit to one line
-                                        .truncationMode(.tail) // Use ellipsis at the end if the text is too long
-                                        .fixedSize(horizontal: true, vertical: false)
-                                        .onTapGesture {
-                                            isUserSelecting = true
-                                            query = synonym.word
-                                            dataMuse.fetchSynonyms(query: query) // Immediately trigger search
-                                        }
+                        .frame(minWidth: 140, maxWidth: .infinity, alignment: .leading)
+                        .clipped()
+
+                        // Column for most pretentious synonyms
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("🤓 Nerdy")
+                                .font(.headline)
+                            ScrollView {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    ForEach(dataMuse.pretentiousSynonyms, id: \.word) { synonym in
+                                        Text(synonym.word)
+                                            .font(.body)
+                                            .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
+                                            .lineLimit(1)
+                                            .truncationMode(.tail)
+                                            .fixedSize(horizontal: true, vertical: false)
+                                            .onTapGesture {
+                                                isUserSelecting = true
+                                                query = synonym.word
+                                                dataMuse.fetchSynonyms(query: query)
+                                            }
+                                    }
                                 }
+                                .padding(.bottom, 10)
                             }
-                            .padding(.bottom, 10)
                         }
+                        .frame(minWidth: 140, maxWidth: .infinity, alignment: .leading)
+                        .clipped()
                     }
-                    .frame(maxWidth: 140, alignment: .leading)
-                    .clipped()
-                    Spacer().frame(width: 20)
-                }
-                
+                    .padding(EdgeInsets(top: 0, leading: 80, bottom: 0, trailing: 40))
+                    .frame(maxWidth: .infinity)
+
                 Spacer()
                 
                 // Add a Definition
