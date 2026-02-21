@@ -8,23 +8,31 @@ NerdBook is a cross-platform (macOS/iOS) word lookup application that provides s
 
 ---
 
-## Current Build Issues (Critical)
+## Build Status
 
-### Mac App Compilation Errors
+### ✅ Mac App Compilation - FIXED
 
-The macOS `NerdBook` target fails to build with **5 critical errors**:
+**Commit:** `d864c0b Fix Mac app compilation errors`
 
-#### 1. **Duplicate Color Extensions** (4 errors)
-- **Location:** `NerdBook/ContentView.swift:5-10` and `Shared/SharedLogic.swift:14-21`
-- **Issue:** Color extensions (`lightShadow`, `darkShadow`, `background`, `neumorphictextColor`) are defined in both files
-- **Root Cause:** Shared code wasn't properly modularized when iOS development took precedence
-- **Solution:** Remove duplicate definitions from `NerdBook/ContentView.swift`; keep only in `Shared/SharedLogic.swift`
+All 5 critical errors resolved:
 
-#### 2. **Duplicate Preview Provider** (1 error)
-- **Location:** `NerdBook/ContentView.swift:393` and `Shared/WaveView.swift:144`
-- **Issue:** `ContentView_Previews` struct declared in both files
-- **Root Cause:** WaveView.swift incorrectly has a preview provider for `ContentView`
-- **Solution:** Remove or rename the preview provider in `WaveView.swift` to `WaveView_Previews`
+#### 1. **Duplicate Color Extensions** (4 errors) - FIXED
+- Removed duplicate Color extensions from `NerdBook/ContentView.swift`
+- Kept single definitions in `Shared/SharedLogic.swift`
+
+#### 2. **Duplicate Preview Provider** (1 error) - FIXED
+- Renamed `ContentView_Previews` in `Shared/WaveView.swift` to `WaveView_Previews`
+
+#### 3. **iOS-only APIs** - FIXED
+- Made Wave shape cross-platform: `UIBezierPath()` → `Path()`
+- Wrapped iOS-only code in `#if os(iOS)` conditionals:
+  - `AudioManager` (audio processing)
+  - `ColorButton` & `FrequencyURLButton` (UIColor usage)
+
+### Current Status
+- **Mac App (NerdBook):** ✅ Builds successfully, runs successfully
+- **iOS App (NerdBookiOS):** ✅ Builds successfully
+- **Shared Code:** ✅ Both apps compile from shared source with platform conditionals
 
 ---
 
@@ -182,23 +190,24 @@ NerdBook/
 
 ---
 
-## Recommended Approach
+## Implementation Progress
 
-### Phase 1: Stabilize (1-2 hours)
-1. Fix the 5 compilation errors
-   - Remove duplicate Color extensions from Mac's ContentView
-   - Fix ContentView_Previews conflict
-2. Verify Mac app runs and basic search works
-3. Commit: "Fix Mac app compilation"
+### ✅ Phase 1: Stabilize (COMPLETE)
+- [x] Fixed 5 compilation errors
+- [x] Removed duplicate Color extensions
+- [x] Fixed ContentView_Previews conflict
+- [x] Made Wave shape cross-platform
+- [x] Wrapped iOS-only code in platform conditionals
+- [x] Verified Mac app runs and compiles
+- [x] Verified iOS app still compiles
+- **Commit:** `d864c0b Fix Mac app compilation errors`
 
-### Phase 2: Refactor Shared Code (2-3 hours)
-1. Audit target membership in Xcode (which files build for which targets)
-2. Move iOS-only code (AudioManager, WaveView) to iOS target
-3. Create clean separation: `Shared` = truly cross-platform
-4. Create `MacApp` and `iOSApp` folders for platform-specific UI
-5. Commit: "Refactor shared code architecture"
+### Phase 2: Refactor Shared Code (SKIPPED - Keeping As-Is)
+- Decided to keep current structure with `#if os(iOS)` guards
+- Rationale: Clean separation achieved, no need for folder reorganization
+- Code is logically organized even if physically co-located
 
-### Phase 3: Feature Parity (4-6 hours)
+### ⏭️ Phase 3: Feature Parity (4-6 hours)
 1. Port definitions display to Mac (from iOS SheetView)
 2. Port trigger words/word cloud (uses existing code)
 3. Add Mac's deep linking support

@@ -135,24 +135,6 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity)
 
                 Spacer()
-                
-                // Add a Definition
-                if let definition = dataMuse.currentDefinition {
-                    Divider().padding(.top, -8)
-                        .background(colorScheme == .dark ? Color.black : Color.white)
-                    HStack(alignment:.top) {
-                        Spacer().frame(width:20)
-                        Text("Def. ")
-                            .font(.headline)
-                        Text(definition)
-                            .font(.body)
-                            .italic()
-                            .textSelection(.enabled)
-                        Spacer()
-                    }
-                }
-                
-                Spacer().frame(height: 10)
             } // END OF LAYER 1 VSTACK
             
             // Autocomplete Suggestions List as an overlay
@@ -227,7 +209,31 @@ struct ContentView: View {
                     Spacer().frame(height: 100)
                 }
             }
-            
+
+            // Definition bar - fixed at bottom with glass effect, scrollable content behind
+            if let definition = dataMuse.currentDefinition {
+                VStack {
+                    Spacer()
+                    VStack(spacing: 0) {
+                        //Divider()
+                        HStack(alignment: .top) {
+                            Spacer().frame(width: 20)
+                            Text("Def. ")
+                                .font(.headline)
+                            Text(definition)
+                                .font(.body)
+                                .italic()
+                                .textSelection(.enabled)
+                            Spacer()
+                        }
+                        .frame(height: 50)
+                    }
+                    .nerdBookGlassEffect()
+                    .padding(.horizontal, 5)
+                    .padding(.bottom, 5)
+                }
+            }
+
         } // END OF MAIN Z STACK VIEW
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -235,11 +241,6 @@ struct ContentView: View {
                     Image(systemName: "cup.and.heat.waves.fill")
                     Text("Like this?")
                     //Image(systemName: "info.circle")
-                   // Image("coffee_small")
-                    //    .resizable()
-                      //  .scaledToFit()
-                       // .frame(width: 30, height: 30)
-
                 }
                 .help("About NerdBook")
             }
@@ -290,7 +291,7 @@ struct NeumorphicStyleTextField: View {
         .background(colorScheme == .dark ? Color.black : Color.white)
         .cornerRadius(12)
         .overlay(
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: 30)
                 .stroke(
                     LinearGradient(
                         gradient: Gradient(colors: [

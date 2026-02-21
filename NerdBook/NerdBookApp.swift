@@ -25,6 +25,17 @@ extension View {
             self
         }
     }
+
+    /// Applies Liquid Glass distortion effect on macOS 26+ (Tahoe),
+    /// falling back to thin material blur on earlier systems.
+    @ViewBuilder
+    func nerdBookGlassEffect() -> some View {
+        if #available(macOS 26.0, *) {
+            self.glassEffect(.regular)
+        } else {
+            self.background(.thinMaterial)
+        }
+    }
 }
 
 extension Scene {

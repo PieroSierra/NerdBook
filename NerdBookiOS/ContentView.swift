@@ -174,7 +174,7 @@ struct ContentView: View {
                         HStack(alignment:.top) {
                             Spacer().frame(width:20)
                             
-                            Text("'Def.' ").font(.headline)
+                            Text("Def. ").font(.headline)
                             
                             Text(definition)
                                 .font(.body)
