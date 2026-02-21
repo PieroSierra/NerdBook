@@ -5,14 +5,15 @@ struct ContentView: View {
     @ObservedObject var dataMuse = DataMuse()
     @State private var query: String = ""
     @State private var showAbout: Bool = false
+    @State private var showAboutDialog: Bool = false
     @FocusState private var isTextFieldFocused: Bool
     @State private var isUserSelecting: Bool = false  // flag to track selection
     @Environment(\.colorScheme) var colorScheme // for DarkMode detection
     
     var body: some View {
         ZStack {
-            // White background for the entire window
-            Color.white
+            // Background using system window color (adapts to dark/light mode automatically)
+            Color(NSColor.windowBackgroundColor)
                 .ignoresSafeArea()
 
             // Clear overlay for tap detection
@@ -142,7 +143,7 @@ struct ContentView: View {
                 // Add a Definition
                 if let definition = dataMuse.currentDefinition {
                     Divider().padding(.top, -8)
-                        .background(.white)
+                        .background(colorScheme == .dark ? Color.black : Color.white)
                     HStack(alignment:.top) {
                         Spacer().frame(width:20)
                         Text("Def. ")
@@ -155,27 +156,7 @@ struct ContentView: View {
                     }
                 }
                 
-                VStack {
-                    let myStringWithLink = "Powered by https://www.datamuse.com/"
-                    Divider()
-                    Text(LocalizedStringKey(myStringWithLink))
-                    // .padding(EdgeInsets(top: 0, leading:20, bottom: 0, trailing: 20))
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                        .onTapGesture {
-                            showAbout.toggle()
-                        }
-                    if (showAbout == true) {
-                        Text("For Mila ❤️ Papa, 2024")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.trailing)
-                            .onTapGesture {
-                                showAbout.toggle()
-                            }
-                    }
-                    Spacer().frame(height: 10)
-                }
+                Spacer().frame(height: 10)
             } // END OF LAYER 1 VSTACK
             
             // Autocomplete Suggestions List as an overlay
@@ -202,7 +183,7 @@ struct ContentView: View {
                         return .handled
                     }
                     .frame(width:500, height: 120)  // Limit the height of the suggestions list
-                    .background(Color.white)  // Ensure the list has a background color
+                    .background(colorScheme == .dark ? Color.black : Color.white)  // Ensure the list has a background color
                     .cornerRadius(8)  // Add some corner radius
                     .shadow(radius: 10)  // Add shadow to the dropdown
                     //  .opacity(0.7)
@@ -252,20 +233,26 @@ struct ContentView: View {
             }
             
         } // END OF MAIN Z STACK VIEW
-        .padding()
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button(action: {}) {
-                    Image(systemName: "info.circle")
+                Button(action: { AboutWindowController.shared.show() }) {
+                    Image(systemName: "cup.and.heat.waves.fill")
+                    Text("Like this?")
+                    //Image(systemName: "info.circle")
+                   // Image("coffee_small")
+                    //    .resizable()
+                      //  .scaledToFit()
+                       // .frame(width: 30, height: 30)
+
                 }
                 .help("About NerdBook")
             }
         }
-        .frame(minWidth: 680, minHeight: 400)  // Ensure the min size is respected in the view
+        .frame(minWidth: 680, minHeight: 420)  // Ensure the min size is respected in the view
         .background(WindowAccessor { window in
             // Set the initial size of the window when it is first created
-            window.setContentSize(NSSize(width: 680, height: 400))
-            window.minSize = NSSize(width: 680, height: 400)  // Set the minimum size
+            window.setContentSize(NSSize(width: 680, height: 420))
+            window.minSize = NSSize(width: 680, height: 420)  // Set the minimum size
         })
         //.background(TranslucentBackgroundView())
         .nerdBookWindowToolbarLiquidGlass()
