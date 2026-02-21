@@ -58,21 +58,23 @@ struct ContentView: View {
                             Text("🙂 Normal")
                                 .font(.headline)
                             ScrollView {
-                                VStack(alignment: .leading, spacing: 5) {
+                                VStack(alignment: .leading, spacing: 6) {
                                     ForEach(dataMuse.synonyms, id: \.word) { synonym in
-                                        Text(synonym.word)
-                                            .font(.body)
-                                            .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
-                                            .lineLimit(1)
-                                            .truncationMode(.tail)
-                                            .fixedSize(horizontal: true, vertical: false)
-                                            .onTapGesture {
+                                        ColorButton(
+                                            text: synonym.word,
+                                            fontSize: 14,
+                                            colorScheme: colorScheme,
+                                            action: {
                                                 isUserSelecting = true
                                                 query = synonym.word
                                                 dataMuse.fetchSynonyms(query: query)
-                                            }
+                                            },
+                                            onAnimationComplete: {}
+                                        )
                                     }
                                 }
+                                .padding(.top, 2)
+                                .padding(.leading, 2)
                                 .padding(.bottom, 10)
                             }
                         }
@@ -84,21 +86,23 @@ struct ContentView: View {
                             Text("😇 Poetic")
                                 .font(.headline)
                             ScrollView {
-                                VStack(alignment: .leading, spacing: 5) {
+                                VStack(alignment: .leading, spacing: 6) {
                                     ForEach(dataMuse.lyricalSynonyms, id: \.word) { synonym in
-                                        Text(synonym.word)
-                                            .font(.body)
-                                            .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
-                                            .lineLimit(1)
-                                            .truncationMode(.tail)
-                                            .fixedSize(horizontal: true, vertical: false)
-                                            .onTapGesture {
+                                        ColorButton(
+                                            text: synonym.word,
+                                            fontSize: 14,
+                                            colorScheme: colorScheme,
+                                            action: {
                                                 isUserSelecting = true
                                                 query = synonym.word
                                                 dataMuse.fetchSynonyms(query: query)
-                                            }
+                                            },
+                                            onAnimationComplete: {}
+                                        )
                                     }
                                 }
+                                .padding(.top, 2)
+                                .padding(.leading, 2)
                                 .padding(.bottom, 10)
                             }
                         }
@@ -110,21 +114,23 @@ struct ContentView: View {
                             Text("🤓 Nerdy")
                                 .font(.headline)
                             ScrollView {
-                                VStack(alignment: .leading, spacing: 5) {
+                                VStack(alignment: .leading, spacing: 6) {
                                     ForEach(dataMuse.pretentiousSynonyms, id: \.word) { synonym in
-                                        Text(synonym.word)
-                                            .font(.body)
-                                            .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
-                                            .lineLimit(1)
-                                            .truncationMode(.tail)
-                                            .fixedSize(horizontal: true, vertical: false)
-                                            .onTapGesture {
+                                        ColorButton(
+                                            text: synonym.word,
+                                            fontSize: 14,
+                                            colorScheme: colorScheme,
+                                            action: {
                                                 isUserSelecting = true
                                                 query = synonym.word
                                                 dataMuse.fetchSynonyms(query: query)
-                                            }
+                                            },
+                                            onAnimationComplete: {}
+                                        )
                                     }
                                 }
+                                .padding(.top, 2)
+                                .padding(.leading, 2)
                                 .padding(.bottom, 10)
                             }
                         }
@@ -225,12 +231,14 @@ struct ContentView: View {
                                 .italic()
                                 .textSelection(.enabled)
                             Spacer()
+                            Image(systemName:"info.circle")
+                                .padding(.trailing, 15)
                         }
                         .frame(height: 50)
                     }
                     .nerdBookGlassEffect()
-                    .padding(.horizontal, 5)
-                    .padding(.bottom, 5)
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 8)
                 }
             }
 

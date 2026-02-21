@@ -187,6 +187,7 @@ func calculateFrequencyThresholds(for words: [Word]) -> (Double, Double) {
 class ColorButtonViewModel: ObservableObject {
     @Published var isAnimationComplete: Bool = false
 }
+#endif
 
 struct ColorButton: View {
     let text: String
@@ -198,6 +199,14 @@ struct ColorButton: View {
     @State private var isPressed: Bool = false
     @State private var scale: CGFloat = 0.6  // Start with a smaller scale for pop-in effect
 
+    private var pillBackground: Color {
+        #if os(iOS)
+        return Color(UIColor.systemBackground)
+        #else
+        return Color(NSColor.windowBackgroundColor)
+        #endif
+    }
+
     var body: some View {
         Button(action: action) {
             Text(text)
@@ -206,7 +215,7 @@ struct ColorButton: View {
                 .padding(.vertical, 5)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(UIColor.systemBackground))
+                        .fill(pillBackground)
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -230,6 +239,9 @@ struct ColorButton: View {
                 }
         }
         .foregroundColor(colorScheme == .dark ? Color.pinkColor : Color.blue)
+        #if os(macOS)
+        .buttonStyle(PillBufferButtonStyle())
+        #endif
         .onLongPressGesture(minimumDuration: 0.1, pressing: { pressing in
             withAnimation(.easeOut(duration: 0.1)) {
                 isPressed = pressing
@@ -238,6 +250,21 @@ struct ColorButton: View {
     }
 }
 
+// Transparent padded button style for macOS — matches the default button hit-area
+// size so the pill bounce animation has room, but renders the background as clear.
+#if os(macOS)
+private struct PillBufferButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.horizontal, 10)
+            .padding(.vertical, 2)
+            .background(Color.clear)
+            .contentShape(Rectangle())
+    }
+}
+#endif
+
+#if os(iOS)
 struct FrequencyURLButton: View {
     let word: String
     let frequency: Double
