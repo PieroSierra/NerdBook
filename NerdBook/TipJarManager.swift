@@ -18,9 +18,9 @@ final class TipJarManager: ObservableObject {
     // NOTE: Product IDs must match exactly what is configured in App Store Connect.
     // Update these strings if your App Store Connect product IDs differ.
     enum TipTier: String, CaseIterable {
-        case espresso = "tip.espresso"
-        case latte    = "tip.latte"
-        case venti    = "tip.venti"
+        case espresso = "nerdbook.tip.espresso"
+        case latte    = "nerdbook.tip.latte"
+        case venti    = "nerdbook.tip.venti"
 
         var displayName: String {
             switch self {
