@@ -22,9 +22,13 @@
 		432E5D812C8A36CF007E7397 /* NerdBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E5D802C8A36CF007E7397 /* NerdBookUITests.swift */; };
 		432E5D832C8A36CF007E7397 /* NerdBookUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E5D822C8A36CF007E7397 /* NerdBookUITestsLaunchTests.swift */; };
 		432E62432CADD40600F1F166 /* TriggerWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E62422CADD3FD00F1F166 /* TriggerWordsView.swift */; };
+		432EAB022EE50001007E7397 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432EAB012EE50001007E7397 /* AboutView.swift */; };
+		432EAB042EE50001007E7397 /* TipJarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432EAB032EE50001007E7397 /* TipJarManager.swift */; };
+		432EAB062EE50001007E7397 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432EAB052EE50001007E7397 /* AboutWindowController.swift */; };
 		4331918C2CA5EC050062A5C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4331918B2CA5EC050062A5C2 /* FeedKit */; };
 		4331918E2CA5EC610062A5C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4331918D2CA5EC610062A5C2 /* FeedKit */; };
 		433191902CA5EC690062A5C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4331918F2CA5EC690062A5C2 /* FeedKit */; };
+		4336621D2F498C8600616454 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 4336621C2F498C8600616454 /* AppIcon.icon */; };
 		437853812CA008CB005EDD43 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437853802CA008CB005EDD43 /* WidgetKit.framework */; };
 		437853832CA008CB005EDD43 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437853822CA008CB005EDD43 /* SwiftUI.framework */; };
 		4378539A2CA0164C005EDD43 /* SharedLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D893C2C9588250016E958 /* SharedLogic.swift */; };
@@ -40,7 +44,6 @@
 		437D893E2C9588450016E958 /* SharedLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D893C2C9588250016E958 /* SharedLogic.swift */; };
 		437D893F2C95886B0016E958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432E5D682C8A36CD007E7397 /* Assets.xcassets */; };
 		43F192AF2EE32BA100FC42BC /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 43F192AE2EE32B9B00FC42BC /* Readme.md */; };
-		43F193342EE32C3700FC42BC /* 1.webp in Resources */ = {isa = PBXBuildFile; fileRef = 43F193332EE32C3700FC42BC /* 1.webp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +124,12 @@
 		432E5D802C8A36CF007E7397 /* NerdBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookUITests.swift; sourceTree = "<group>"; };
 		432E5D822C8A36CF007E7397 /* NerdBookUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		432E62422CADD3FD00F1F166 /* TriggerWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerWordsView.swift; sourceTree = "<group>"; };
+		432EAB012EE50001007E7397 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		432EAB032EE50001007E7397 /* TipJarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarManager.swift; sourceTree = "<group>"; };
+		432EAB052EE50001007E7397 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		432EAB072EE50001007E7397 /* NerdBookTips.storekit */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.storekit-configuration"; path = NerdBookTips.storekit; sourceTree = "<group>"; };
+		4336621C2F498C8600616454 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		4336621E2F49901500616454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4378537E2CA008CB005EDD43 /* WordOfTheDayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WordOfTheDayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		437853802CA008CB005EDD43 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		437853822CA008CB005EDD43 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -139,7 +148,6 @@
 		437D89302C9586600016E958 /* NerdBookiOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookiOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		437D893C2C9588250016E958 /* SharedLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLogic.swift; sourceTree = "<group>"; };
 		43F192AE2EE32B9B00FC42BC /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		43F193332EE32C3700FC42BC /* 1.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.webp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -229,7 +237,6 @@
 				437853842CA008CB005EDD43 /* WordOfTheDay */,
 				4378537F2CA008CB005EDD43 /* Frameworks */,
 				432E5D622C8A36CB007E7397 /* Products */,
-				43F193332EE32C3700FC42BC /* 1.webp */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,11 +257,17 @@
 		432E5D632C8A36CB007E7397 /* NerdBook */ = {
 			isa = PBXGroup;
 			children = (
+				4336621E2F49901500616454 /* Info.plist */,
 				432E5D642C8A36CB007E7397 /* NerdBookApp.swift */,
 				432E5D662C8A36CB007E7397 /* ContentView.swift */,
+				432EAB012EE50001007E7397 /* AboutView.swift */,
+				432EAB032EE50001007E7397 /* TipJarManager.swift */,
+				432EAB052EE50001007E7397 /* AboutWindowController.swift */,
+				432EAB072EE50001007E7397 /* NerdBookTips.storekit */,
 				432E5D682C8A36CD007E7397 /* Assets.xcassets */,
 				432E5D6D2C8A36CD007E7397 /* NerdBook.entitlements */,
 				432E5D6A2C8A36CD007E7397 /* Preview Content */,
+				4336621C2F498C8600616454 /* AppIcon.icon */,
 			);
 			path = NerdBook;
 			sourceTree = "<group>";
@@ -548,8 +561,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				432E5D6C2C8A36CD007E7397 /* Preview Assets.xcassets in Resources */,
-				43F193342EE32C3700FC42BC /* 1.webp in Resources */,
 				432E5D692C8A36CD007E7397 /* Assets.xcassets in Resources */,
+				4336621D2F498C8600616454 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +624,9 @@
 				432E5D652C8A36CB007E7397 /* NerdBookApp.swift in Sources */,
 				4312EA3D2CB3BAE400CAB5C3 /* SharedData.swift in Sources */,
 				437D893D2C9588250016E958 /* SharedLogic.swift in Sources */,
+				432EAB022EE50001007E7397 /* AboutView.swift in Sources */,
+				432EAB042EE50001007E7397 /* TipJarManager.swift in Sources */,
+				432EAB062EE50001007E7397 /* AboutWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,6 +856,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NerdBook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NerdBook Desktop";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -847,8 +864,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -873,6 +890,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NerdBook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NerdBook Desktop";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -880,8 +898,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = pieroco.NerdBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
