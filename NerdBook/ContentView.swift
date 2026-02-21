@@ -38,7 +38,7 @@ struct ContentView: View {
                 // MARK: - Search Bar
 
                 HStack {
-                    NeumorphicStyleTextField(text: $query, imageName: "magnifyingglass", placeholder: "NerdBook...") {
+                    NeumorphicStyleTextField(text: $query, imageName: "magnifyingglass", placeholder: "Find word...") {
                         dataMuse.debounceTimer?.invalidate()  // Cancel the debounce timer when pressing "Enter"
                         dataMuse.fetchSynonyms(query: query)
                         isUserSelecting = true
@@ -47,7 +47,14 @@ struct ContentView: View {
                         dataMuse.debounceTimer?.invalidate()  // Cancel the debounce timer when pressing "ESC"
                         isUserSelecting = true
                         query = ""  // Clear the search text
-                        dataMuse.suggestions.removeAll()  // Hide suggestions after cancellation
+                        dataMuse.suggestions.removeAll()  // Hide suggestions
+                        dataMuse.synonyms.removeAll()  // Clear all columns
+                        dataMuse.lyricalSynonyms.removeAll()
+                        dataMuse.pretentiousSynonyms.removeAll()
+                        dataMuse.soundsLikeWords.removeAll()
+                        dataMuse.currentDefinition = nil  // Clear definition bar
+                        dataMuse.currentDefs.removeAll()
+                        dataMuse.triggerWords.removeAll()
                     }
                     .focused($isTextFieldFocused)
                     .onChange(of: query) { newValue in
@@ -305,6 +312,8 @@ struct DefinitionBarView: View {
                     Text(definition)
                         .font(.body)
                         .italic()
+                        .lineLimit(2)
+                        .truncationMode(.tail)
                     Spacer()
                     Button {
                         NSPasteboard.general.clearContents()
