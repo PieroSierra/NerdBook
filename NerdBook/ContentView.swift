@@ -10,8 +10,15 @@ struct ContentView: View {
     @State private var showAboutDialog: Bool = false
     @FocusState private var isTextFieldFocused: Bool
     @State private var isUserSelecting: Bool = false  // flag to track selection
+    @State private var hasSearched: Bool = false  // true after Enter/submit, false after ESC/clear
     @State private var showDefinitionsSheet: Bool = false
     @Environment(\.colorScheme) var colorScheme // for DarkMode detection
+
+    init(dataMuse: DataMuse = DataMuse(), query: String = "", hasSearched: Bool = false) {
+        self.dataMuse = dataMuse
+        _query = State(initialValue: query)
+        _hasSearched = State(initialValue: hasSearched)
+    }
 
     // MARK: - Body
 
@@ -41,20 +48,11 @@ struct ContentView: View {
                     NeumorphicStyleTextField(text: $query, imageName: "magnifyingglass", placeholder: "Find word...") {
                         dataMuse.debounceTimer?.invalidate()  // Cancel the debounce timer when pressing "Enter"
                         dataMuse.fetchSynonyms(query: query)
+                        hasSearched = true
                         isUserSelecting = true
                         dataMuse.suggestions.removeAll()  // Hide suggestions after selection
                     } onCancel: {
-                        dataMuse.debounceTimer?.invalidate()  // Cancel the debounce timer when pressing "ESC"
-                        isUserSelecting = true
-                        query = ""  // Clear the search text
-                        dataMuse.suggestions.removeAll()  // Hide suggestions
-                        dataMuse.synonyms.removeAll()  // Clear all columns
-                        dataMuse.lyricalSynonyms.removeAll()
-                        dataMuse.pretentiousSynonyms.removeAll()
-                        dataMuse.soundsLikeWords.removeAll()
-                        dataMuse.currentDefinition = nil  // Clear definition bar
-                        dataMuse.currentDefs.removeAll()
-                        dataMuse.triggerWords.removeAll()
+                        clearSearch()
                     }
                     .focused($isTextFieldFocused)
                     .onChange(of: query) { newValue in
@@ -69,36 +67,47 @@ struct ContentView: View {
                 }
                 .padding(EdgeInsets(top: 20, leading:30, bottom: 20, trailing: 30))
 
-                // MARK: - Synonym Columns
+                // MARK: - Content Area (WOTD or Synonym Columns)
 
-                HStack(alignment:.top, spacing: 0){
-                    SynonymColumnView(
-                        title: "🙂 Synonyms",
-                        words: dataMuse.synonyms,
-                        colorScheme: colorScheme,
-                        onWordSelected: { word in handleWordSelected(word) }
-                    )
-                    SynonymColumnView(
-                        title: "😇 Poetic",
-                        words: dataMuse.lyricalSynonyms,
-                        colorScheme: colorScheme,
-                        onWordSelected: { word in handleWordSelected(word) }
-                    )
-                    SynonymColumnView(
-                        title: "🤓 Nerdy",
-                        words: dataMuse.pretentiousSynonyms,
-                        colorScheme: colorScheme,
-                        onWordSelected: { word in handleWordSelected(word) }
-                    )
-                    SynonymColumnView(
-                        title: "🎧 Sounds Like",
-                        words: dataMuse.soundsLikeWords,
-                        colorScheme: colorScheme,
-                        onWordSelected: { word in handleWordSelected(word) }
-                    )
+                if !hasSearched {
+                    // Empty state: show Word of the Day
+                    if let wotdWord = dataMuse.wotdWord {
+                        WordOfTheDayView(word: wotdWord, definition: dataMuse.wotdDefinition)
+                            .transition(.opacity.animation(.easeIn(duration: 0.4)))
+                    } else {
+                        Spacer()
+                    }
+                } else {
+                    // Search results: show synonym columns
+                    HStack(alignment:.top, spacing: 0){
+                        SynonymColumnView(
+                            title: "🙂 Synonyms",
+                            words: dataMuse.synonyms,
+                            colorScheme: colorScheme,
+                            onWordSelected: { word in handleWordSelected(word) }
+                        )
+                        SynonymColumnView(
+                            title: "😇 Poetic",
+                            words: dataMuse.lyricalSynonyms,
+                            colorScheme: colorScheme,
+                            onWordSelected: { word in handleWordSelected(word) }
+                        )
+                        SynonymColumnView(
+                            title: "🤓 Nerdy",
+                            words: dataMuse.pretentiousSynonyms,
+                            colorScheme: colorScheme,
+                            onWordSelected: { word in handleWordSelected(word) }
+                        )
+                        SynonymColumnView(
+                            title: "🎧 Sounds Like",
+                            words: dataMuse.soundsLikeWords,
+                            colorScheme: colorScheme,
+                            onWordSelected: { word in handleWordSelected(word) }
+                        )
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 30))
+                    .frame(maxWidth: .infinity)
                 }
-                .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 30))
-                .frame(maxWidth: .infinity)
 
                 Spacer()
             } // END OF LAYER 1 VSTACK
@@ -111,6 +120,7 @@ struct ContentView: View {
                     colorScheme: colorScheme,
                     onSelect: { suggestion in
                         isUserSelecting = true
+                        hasSearched = true
                         query = suggestion
                         dataMuse.fetchSynonyms(query: query)
                         dataMuse.suggestions.removeAll()
@@ -134,6 +144,22 @@ struct ContentView: View {
             }
 
         } // END OF MAIN Z STACK VIEW
+        .onAppear {
+            dataMuse.fetchWordOfTheDayIfNeeded()
+        }
+        .onAppear {
+            NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+                if event.keyCode == 53 { // ESC key
+                    if showDefinitionsSheet {
+                        showDefinitionsSheet = false
+                    } else {
+                        clearSearch()
+                    }
+                    return nil // consume the event, no beep
+                }
+                return event
+            }
+        }
 
         // MARK: - Toolbar
 
@@ -173,8 +199,24 @@ struct ContentView: View {
 
     private func handleWordSelected(_ word: String) {
         isUserSelecting = true
+        hasSearched = true
         query = word
         dataMuse.fetchSynonyms(query: query)
+    }
+
+    private func clearSearch() {
+        dataMuse.debounceTimer?.invalidate()
+        hasSearched = false
+        isUserSelecting = true
+        query = ""
+        dataMuse.suggestions.removeAll()
+        dataMuse.synonyms.removeAll()
+        dataMuse.lyricalSynonyms.removeAll()
+        dataMuse.pretentiousSynonyms.removeAll()
+        dataMuse.soundsLikeWords.removeAll()
+        dataMuse.currentDefinition = nil
+        dataMuse.currentDefs.removeAll()
+        dataMuse.triggerWords.removeAll()
     }
 
     @ViewBuilder
@@ -208,6 +250,42 @@ struct ContentView: View {
     }
 } // END OF MAIN VIEW
 
+// MARK: - WordOfTheDayView
+
+struct WordOfTheDayView: View {
+    let word: String
+    let definition: String?
+
+    var body: some View {
+        VStack(spacing: 12) {
+            HStack(alignment: .top, spacing: 4) {
+                Text("\u{201C}")
+                    .font(.custom("American Typewriter", size: 50))
+                    .foregroundColor(.gray)
+                    .baselineOffset(10)
+                Text(word)
+                    .font(.custom("American Typewriter", size: 28).bold())
+                    .lineLimit(1)
+            }
+
+            Rectangle()
+                .fill(Color.gray.opacity(0.4))
+                .frame(width: 200, height: 1)
+
+            if let definition = definition, definition != "No definition available" {
+                Text(definition)
+                    .font(.custom("American Typewriter", size: 15))
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(7)
+                    .truncationMode(.tail)
+            }
+        }
+        .frame(maxWidth: 480)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
 // MARK: - SynonymColumnView
 
 struct SynonymColumnView: View {
@@ -219,7 +297,9 @@ struct SynonymColumnView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(title)
-                .font(.headline)
+                .font(.body)
+//                .font(.custom("American Typewriter", size: 13))
+       //         .foregroundColor(.secondary)
             ScrollView {
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(words, id: \.word) { synonym in
@@ -366,7 +446,12 @@ struct MacDefinitionCard: View {
                 .multilineTextAlignment(.center)
                 .padding()
                 .frame(width: 220, height: 136, alignment: .center)
-
+                .font(.custom("American Typewriter", size: 13))
+                .foregroundColor(.secondary)
+                .lineLimit(5)
+                .truncationMode(.tail)
+            
+            
             Button {
                 NSPasteboard.general.clearContents()
                 NSPasteboard.general.setString(cleanDefinition, forType: .string)
@@ -403,12 +488,22 @@ struct DefinitionsSheetView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Text(word)
-                .font(.largeTitle)
-                .bold()
-                .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
+            HStack(alignment: .top, spacing: 4) {
+                Text("\u{201C}")
+                    .font(.custom("American Typewriter", size: 50))
+                    .foregroundColor(.gray)
+                    .baselineOffset(6)
+                Text(word)
+                    .font(.custom("American Typewriter", size: 28).bold())
+            }
+            .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
 
             ScrollView {
+                Rectangle()
+                    .fill(Color.gray.opacity(0.4))
+                    .frame(width: 200, height: 1)
+                //    .padding(.bottom, 10)
+                
                 if !definitions.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 20) {
@@ -597,11 +692,100 @@ struct CustomTextField: NSViewRepresentable {
     }
 }
 
-// MARK: - Preview
+// MARK: - Previews
 
-// Structure needed to enable Preview in XCODE
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview("Main App") {
+    ContentView()
+        .frame(width: 680, height: 420)
+}
+
+#Preview("Search Results") {
+    let dm = DataMuse()
+    dm.synonyms = [
+        Word(word: "raid", frequency: 12.0),
+        Word(word: "incursion", frequency: 3.2),
+        Word(word: "sortie", frequency: 2.1),
+        Word(word: "attack", frequency: 18.0),
+        Word(word: "assault", frequency: 10.5),
+        Word(word: "expedition", frequency: 6.0),
+        Word(word: "venture", frequency: 8.0),
+        Word(word: "sally", frequency: 1.8),
+        Word(word: "invasion", frequency: 9.0),
+        Word(word: "onset", frequency: 4.5),
+    ]
+    dm.lyricalSynonyms = [
+        Word(word: "sally", numSyllables: 2, frequency: 1.8),
+        Word(word: "sortie", numSyllables: 2, frequency: 2.1),
+        Word(word: "venture", numSyllables: 2, frequency: 8.0),
+        Word(word: "incursion", numSyllables: 3, frequency: 3.2),
+        Word(word: "expedition", numSyllables: 4, frequency: 6.0),
+    ]
+    dm.pretentiousSynonyms = [
+        Word(word: "incursion", frequency: 3.2),
+        Word(word: "sortie", frequency: 2.1),
+        Word(word: "sally", frequency: 1.8),
+        Word(word: "expedition", frequency: 6.0),
+        Word(word: "assault", frequency: 10.5),
+    ]
+    dm.soundsLikeWords = [
+        Word(word: "foyer", frequency: 5.0),
+        Word(word: "fray", frequency: 7.0),
+        Word(word: "hurray", frequency: 3.0),
+        Word(word: "hooray", frequency: 4.0),
+    ]
+    dm.currentDefinition = "a sudden or irregular invasion or attack for war or spoils"
+    return ContentView(dataMuse: dm, query: "foray", hasSearched: true)
+        .frame(width: 680, height: 420)
+}
+
+#Preview("Word of the Day") {
+    WordOfTheDayView(
+        word: "serendipity",
+        definition: "the faculty or phenomenon of finding valuable or agreeable things not sought for"
+    )
+    .frame(width: 680, height: 420)
+}
+
+#Preview("Definitions Sheet") {
+    DefinitionsSheetView(
+        word: "ephemeral",
+        definitions: [
+            "adj\tLasting a very short time.  Like this preview text which is extremly long, and unlikely that we'll ever hit it.  Still, worth seeing how long this thing can get and if it was insanely long what would happen really?  Who know... Certainly not I.",
+            "adj\tliving or lasting only for a day",
+            "n\tsomething that lasts for a markedly brief time"
+        ],
+        triggerWords: [
+            Word(word: "fleeting", frequency: 8.0),
+            Word(word: "transient", frequency: 5.5),
+            Word(word: "momentary", frequency: 4.2),
+            Word(word: "brief", frequency: 12.0),
+            Word(word: "passing", frequency: 9.0),
+            Word(word: "fleeting", frequency: 8.0),
+            Word(word: "transient", frequency: 5.5),
+            Word(word: "momentary", frequency: 4.2),
+            Word(word: "brief", frequency: 12.0),
+            Word(word: "passing", frequency: 9.0),
+            Word(word: "fleeting", frequency: 8.0),
+            Word(word: "transient", frequency: 5.5),
+            Word(word: "momentary", frequency: 4.2),
+            Word(word: "brief", frequency: 12.0),
+            Word(word: "passing", frequency: 9.0),
+            Word(word: "fleeting", frequency: 8.0),
+            Word(word: "transient", frequency: 5.5),
+            Word(word: "momentary", frequency: 4.2),
+            Word(word: "brief", frequency: 12.0),
+            Word(word: "passing", frequency: 9.0),
+            Word(word: "transient", frequency: 5.5),
+            Word(word: "momentary", frequency: 4.2),
+            Word(word: "brief", frequency: 12.0),
+            Word(word: "passing", frequency: 9.0),
+            Word(word: "fleeting", frequency: 8.0),
+            Word(word: "transient", frequency: 5.5),
+            Word(word: "momentary", frequency: 4.2),
+            Word(word: "brief", frequency: 12.0),
+            Word(word: "passing", frequency: 9.0),
+        ],
+        onWordSelected: { _ in }
+    )
+    .frame(width: 600, height: 450)
 }
