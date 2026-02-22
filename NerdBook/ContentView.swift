@@ -332,46 +332,50 @@ struct AutocompleteSuggestionsView: View {
     let onSelect: (String) -> Void
     let onDismiss: () -> Void
 
+    private let rowHeight: CGFloat = 32
+    private let maxRows: Int = 5
+
+    private var listHeight: CGFloat {
+        let count = min(suggestions.count, maxRows)
+        return CGFloat(count) * rowHeight + 8 // 8 for top/bottom padding
+    }
+
     var body: some View {
         VStack {
             Spacer().frame(height: 62)  // Position it below the TextField
-            List(suggestions, id: \.self) { suggestion in
-                Text(suggestion)
-                    .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
-                    .onTapGesture {
-                        onSelect(suggestion)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(suggestions, id: \.self) { suggestion in
+                        Text(suggestion)
+                            .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(height: rowHeight)
+                            .padding(.horizontal, 12)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                onSelect(suggestion)
+                            }
+                            .onHover { hovering in
+                                if hovering {
+                                    NSCursor.pointingHand.push()
+                                } else {
+                                    NSCursor.pop()
+                                }
+                            }
                     }
+                }
+                .padding(.vertical, 4)
             }
-            .onKeyPress(.escape) {            // <ESCAPE> key tracking
-#if DEBUG
-                print ("ESC key pressed - Autocomplete window")
-#endif
-                onDismiss()
-                return .handled
-            }
-            .frame(width: 400, height: 120)  // Limit the height of the suggestions list
-            .background(colorScheme == .dark ? Color.black : Color.white)  // Ensure the list has a background color
-            .cornerRadius(8)  // Add some corner radius
-            .shadow(radius: 10)  // Add shadow to the dropdown
-            Spacer()
-        } // end VSTACK
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .transition(.opacity)  // Smooth transition when showing/hiding
-        .padding()
-        .padding(.leading, 20)
-
-        VStack {
-            Spacer().frame(height: 65)
-            HStack{
-                Spacer().frame(width: 80)
-                Triangle()
-                    .fill(colorScheme == .dark ? Color(hex: 0x2c2e2f) : Color.white)
-                    .frame(width: 25, height: 13)
-                    .opacity(1)
-                Spacer()
-            }
+            .frame(width: 400, height: listHeight)
+            .nerdBookGlassEffect()
+            .cornerRadius(10)
+            .shadow(radius: 8)
             Spacer()
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .transition(.opacity)
+        .padding()
+        .padding(.leading, 20)
     }
 }
 
