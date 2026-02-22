@@ -172,8 +172,8 @@ struct TipJarSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("NerdBook is free. Coffee is not. Buy me a cup?")
-                .font(.system(size: 11))
-                .foregroundStyle(.secondary)
+                //.font(.system(size: 11))
+                //.foregroundStyle(.secondary)
 
             Spacer().frame(height: 2)
 

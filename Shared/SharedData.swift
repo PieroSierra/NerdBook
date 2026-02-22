@@ -111,7 +111,12 @@ class DataMuse: ObservableObject {
     @Published public var isLoading: Bool = false
     @Published public var networkAvailable: Bool = true
     public var debounceTimer: Foundation.Timer?
-    
+
+    // Word of the Day state
+    @Published public var wotdWord: String? = nil
+    @Published public var wotdDefinition: String? = nil
+    public var wotdFetchedAt: Date? = nil
+
     init() {}
     
     // Function to fetch synonyms from the Datamuse API
@@ -242,6 +247,26 @@ class DataMuse: ObservableObject {
         triggerTask.resume()
     }
     
+    // Fetch Word of the Day if stale (>23 hours) or never fetched
+    func fetchWordOfTheDayIfNeeded() {
+        if let fetchedAt = wotdFetchedAt,
+           Date().timeIntervalSince(fetchedAt) < 23 * 3600 {
+            return // Still fresh
+        }
+
+        fetchWordOfTheDay { [weak self] word, _ in
+            guard let self = self, word != "Error" else { return }
+            fetchDefinitionForWidget(query: word) { [weak self] definition in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    self.wotdWord = word
+                    self.wotdDefinition = definition
+                    self.wotdFetchedAt = Date()
+                }
+            }
+        }
+    }
+
     // Function to fetch suggestions for Autocomplete
     func fetchSuggestions(for input: String) {
         debounceTimer?.invalidate()  // Cancel any existing timer

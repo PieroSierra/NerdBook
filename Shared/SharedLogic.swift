@@ -210,7 +210,9 @@ struct ColorButton: View {
     var body: some View {
         Button(action: action) {
             Text(text)
-                .font(.system(size: fontSize))
+        //        .font(.system(size: fontSize))
+                .font(.custom("American Typewriter", size: fontSize))
+            
                 .padding(.horizontal, 10)
                 .padding(.vertical, 5)
                 .background(
