@@ -332,7 +332,7 @@ struct AutocompleteSuggestionsView: View {
     let onSelect: (String) -> Void
     let onDismiss: () -> Void
 
-    private let rowHeight: CGFloat = 32
+    private let rowHeight: CGFloat = 30
     private let maxRows: Int = 5
 
     private var listHeight: CGFloat {
@@ -350,8 +350,7 @@ struct AutocompleteSuggestionsView: View {
                             .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .frame(height: rowHeight)
-                            .padding(.horizontal, 12)
-                            .contentShape(Rectangle())
+                            .padding(.horizontal, 20)
                             .onTapGesture {
                                 onSelect(suggestion)
                             }
@@ -364,18 +363,15 @@ struct AutocompleteSuggestionsView: View {
                             }
                     }
                 }
-                .padding(.vertical, 4)
             }
             .frame(width: 400, height: listHeight)
-            .nerdBookGlassEffect()
-            .cornerRadius(10)
-            .shadow(radius: 8)
+            .nerdBookGlassEffect(cornerRadius: 20)
             Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .transition(.opacity)
         .padding()
-        .padding(.leading, 20)
+        .padding(.leading, 35)
     }
 }
 
@@ -384,6 +380,8 @@ struct AutocompleteSuggestionsView: View {
 struct DefinitionBarView: View {
     let definition: String
     let onTap: () -> Void
+
+    @State private var opacity: Double = 0
 
     var body: some View {
         VStack {
@@ -419,6 +417,14 @@ struct DefinitionBarView: View {
             .padding(.horizontal, 8)
             .padding(.bottom, 8)
             .contentShape(Rectangle())
+            .opacity(opacity)
+            .onAppear {
+                withAnimation(.easeIn(duration: 0.35)) { opacity = 1 }
+            }
+            .onChange(of: definition) {
+                opacity = 0
+                withAnimation(.easeIn(duration: 0.35)) { opacity = 1 }
+            }
             .onTapGesture {
                 onTap()
             }

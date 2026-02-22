@@ -28,12 +28,24 @@ extension View {
 
     /// Applies Liquid Glass distortion effect on macOS 26+ (Tahoe),
     /// falling back to thin material blur on earlier systems.
+    /// Default shape is capsule (pill).
     @ViewBuilder
     func nerdBookGlassEffect() -> some View {
         if #available(macOS 26.0, *) {
             self.glassEffect(.regular)
         } else {
             self.background(.thinMaterial)
+        }
+    }
+
+    /// Applies Liquid Glass with a RoundedRectangle of the given corner radius.
+    @ViewBuilder
+    func nerdBookGlassEffect(cornerRadius: CGFloat) -> some View {
+        if #available(macOS 26.0, *) {
+            self.glassEffect(.regular, in: RoundedRectangle(cornerRadius: cornerRadius))
+        } else {
+            self.background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
         }
     }
 }
