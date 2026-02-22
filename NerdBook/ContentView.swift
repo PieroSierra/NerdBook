@@ -449,7 +449,7 @@ struct DefinitionBarView: View {
         VStack {
             Spacer()
             VStack(spacing: 0) {
-                HStack(alignment: .top) {
+                HStack(alignment: .center) {
                     Spacer().frame(width: 20)
                     Text("Def. ")
                         .font(.headline)
