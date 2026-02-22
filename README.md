@@ -2,7 +2,7 @@
 
 A word explorer for writers, poets, and language nerds. NerdBook goes beyond a basic thesaurus — it finds synonyms, poetic alternatives, nerdy/pretentious words, and sound-alike matches, all in one view.
 
-![screenshot3 copy.png](/Users/pierosierra/Development/NerdBook/screenshot3%20copy.png)
+![screenshot3 copy.png](screenshot3.png)
 
 ![NerdBook Desktop](screenshot.png)
 
