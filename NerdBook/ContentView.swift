@@ -9,9 +9,11 @@ struct ContentView: View {
     @State private var showAbout: Bool = false
     @State private var showAboutDialog: Bool = false
     @FocusState private var isTextFieldFocused: Bool
-    @State private var isUserSelecting: Bool = false  // flag to track selection
-    @State private var hasSearched: Bool = false  // true after Enter/submit, false after ESC/clear
+    @State private var isUserSelecting: Bool = false
+    @State private var hasSearched: Bool = false
     @State private var showDefinitionsSheet: Bool = false
+    @State private var selectedSuggestionIndex: Int = -1
+    @State private var isReady: Bool = false
     @Environment(\.colorScheme) var colorScheme // for DarkMode detection
 
     init(dataMuse: DataMuse = DataMuse(), query: String = "", hasSearched: Bool = false) {
@@ -114,21 +116,24 @@ struct ContentView: View {
 
             // MARK: - Overlays (Autocomplete, Loading, Network Error, Definition)
 
-            if !dataMuse.suggestions.isEmpty {
+            if !dataMuse.suggestions.isEmpty && isReady {
                 AutocompleteSuggestionsView(
                     suggestions: dataMuse.suggestions,
                     colorScheme: colorScheme,
+                    selectedIndex: $selectedSuggestionIndex,
                     onSelect: { suggestion in
                         isUserSelecting = true
                         hasSearched = true
                         query = suggestion
                         dataMuse.fetchSynonyms(query: query)
                         dataMuse.suggestions.removeAll()
+                        selectedSuggestionIndex = -1
                     },
                     onDismiss: {
                         dataMuse.debounceTimer?.invalidate()
                         isUserSelecting = true
                         dataMuse.suggestions.removeAll()
+                        selectedSuggestionIndex = -1
                     }
                 )
             }
@@ -146,17 +151,55 @@ struct ContentView: View {
         } // END OF MAIN Z STACK VIEW
         .onAppear {
             dataMuse.fetchWordOfTheDayIfNeeded()
+            DispatchQueue.main.async { isReady = true }
+        }
+        .onChange(of: dataMuse.suggestions) {
+            selectedSuggestionIndex = -1
         }
         .onAppear {
             NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
-                if event.keyCode == 53 { // ESC key
+                let keyCode = event.keyCode
+
+                if keyCode == 53 { // ESC
                     if showDefinitionsSheet {
                         showDefinitionsSheet = false
+                    } else if !dataMuse.suggestions.isEmpty {
+                        // Dismiss dropdown only — keep query text
+                        isUserSelecting = true
+                        dataMuse.suggestions.removeAll()
+                        selectedSuggestionIndex = -1
                     } else {
                         clearSearch()
                     }
-                    return nil // consume the event, no beep
+                    return nil
                 }
+
+                guard !dataMuse.suggestions.isEmpty else { return event }
+
+                if keyCode == 125 { // Down arrow
+                    selectedSuggestionIndex = min(selectedSuggestionIndex + 1,
+                                                  dataMuse.suggestions.count - 1)
+                    return nil
+                }
+                if keyCode == 126 { // Up arrow
+                    if selectedSuggestionIndex > 0 {
+                        selectedSuggestionIndex -= 1
+                    } else {
+                        selectedSuggestionIndex = -1
+                    }
+                    return nil
+                }
+                if keyCode == 36, selectedSuggestionIndex >= 0 { // Return with selection
+                    let word = dataMuse.suggestions[selectedSuggestionIndex]
+                    isUserSelecting = true
+                    hasSearched = true
+                    query = word
+                    dataMuse.fetchSynonyms(query: word)
+                    dataMuse.suggestions.removeAll()
+                    selectedSuggestionIndex = -1
+                    return nil
+                }
+
                 return event
             }
         }
@@ -329,6 +372,7 @@ struct SynonymColumnView: View {
 struct AutocompleteSuggestionsView: View {
     let suggestions: [String]
     let colorScheme: ColorScheme
+    @Binding var selectedIndex: Int
     let onSelect: (String) -> Void
     let onDismiss: () -> Void
 
@@ -337,41 +381,59 @@ struct AutocompleteSuggestionsView: View {
 
     private var listHeight: CGFloat {
         let count = min(suggestions.count, maxRows)
-        return CGFloat(count) * rowHeight + 8 // 8 for top/bottom padding
+        return CGFloat(count) * rowHeight + 8
     }
 
     var body: some View {
         VStack {
-            Spacer().frame(height: 62)  // Position it below the TextField
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    ForEach(suggestions, id: \.self) { suggestion in
-                        Text(suggestion)
-                            .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .frame(height: rowHeight)
-                            .padding(.horizontal, 20)
-                            .onTapGesture {
-                                onSelect(suggestion)
-                            }
-                            .onHover { hovering in
-                                if hovering {
-                                    NSCursor.pointingHand.push()
-                                } else {
-                                    NSCursor.pop()
+            Spacer().frame(height: 62)
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(suggestions.indices, id: \.self) { index in
+                            Text(suggestions[index])
+                                .foregroundColor(colorScheme == .dark ? Color.pinkColor : .blue)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .frame(height: rowHeight)
+                                .padding(.horizontal, 16)
+                                .background(
+                                    Group {
+                                        if index == selectedIndex {
+                                            RoundedRectangle(cornerRadius: 7)
+                                                .fill(colorScheme == .light
+                                                      ? Color.pinkColor.opacity(0.2)
+                                                      : Color.blueColor.opacity(0.15))
+                                                .padding(.horizontal, 5)
+                                        }
+                                    }
+                                )
+                                .id(index)
+                                .onTapGesture { onSelect(suggestions[index]) }
+                                .onHover { hovering in
+                                    if hovering { NSCursor.pointingHand.push() }
+                                    else { NSCursor.pop() }
                                 }
-                            }
+                        }
                     }
                 }
+                .onChange(of: selectedIndex) { oldValue, newValue in
+                    guard newValue >= 0 else { return }
+                    let anchor: UnitPoint = newValue > oldValue ? .bottom : .top
+                    withAnimation(.easeInOut(duration: 0.1)) {
+                        proxy.scrollTo(newValue, anchor: anchor)
+                    }
+                }
+                .padding(.top, 5)
+                .padding(.bottom, 5)
             }
             .frame(width: 400, height: listHeight)
-            .nerdBookGlassEffect(cornerRadius: 20)
+            .nerdBookGlassEffect(cornerRadius: 10)
             Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .transition(.opacity)
         .padding()
-        .padding(.leading, 35)
+        .padding(.leading, 40)
     }
 }
 
