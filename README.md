@@ -2,11 +2,13 @@
 
 A word explorer for writers, poets, and language nerds. NerdBook goes beyond a basic thesaurus — it finds synonyms, poetic alternatives, nerdy/pretentious words, and sound-alike matches, all in one view.
 
+![screenshot3 copy.png](/Users/pierosierra/Development/NerdBook/screenshot3%20copy.png)
+
 ![NerdBook Desktop](screenshot.png)
 
 ## What it does
 
-Type any word and NerdBook instantly shows four columns of results:
+The app greets you with a **word of the day** and definition. Then type any word and NerdBook instantly shows four columns of results:
 
 - **Synonyms** — Standard synonyms ranked by relevance
 - **Poetic** — Lyrical, literary alternatives for creative writing
