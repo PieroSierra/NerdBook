@@ -116,8 +116,17 @@ class DataMuse: ObservableObject {
     @Published public var wotdWord: String? = nil
     @Published public var wotdDefinition: String? = nil
     public var wotdFetchedAt: Date? = nil
+    private var wotdRefreshTimer: Foundation.Timer?
 
-    init() {}
+    init() {
+        startWotdRefreshTimer()
+    }
+
+    private func startWotdRefreshTimer() {
+        wotdRefreshTimer = Foundation.Timer.scheduledTimer(withTimeInterval: 14400, repeats: true) { [weak self] _ in
+            self?.fetchWordOfTheDayIfNeeded()
+        }
+    }
     
     // Function to fetch synonyms from the Datamuse API
     func fetchSynonyms(query: String) {
