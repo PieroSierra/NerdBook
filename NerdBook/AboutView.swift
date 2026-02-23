@@ -55,7 +55,8 @@ struct AboutView: View {
 
                 VStack(alignment: .leading, spacing: 12) {
                     Text(appName)
-                        .font(.system(size: 40, weight: .semibold))
+                        .font(.custom("American Typewriter",size: 40).weight(.semibold))
+                        //.font(.system(size: 40, weight: .semibold))
                         .foregroundStyle(.primary)
 
                     Text("\(versionLine)\nCopyright © 2024 Piero Sierra. All rights reserved.")

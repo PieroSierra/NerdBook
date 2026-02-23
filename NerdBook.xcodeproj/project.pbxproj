@@ -44,6 +44,11 @@
 		437D893E2C9588450016E958 /* SharedLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D893C2C9588250016E958 /* SharedLogic.swift */; };
 		437D893F2C95886B0016E958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432E5D682C8A36CD007E7397 /* Assets.xcassets */; };
 		43F192AF2EE32BA100FC42BC /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 43F192AE2EE32B9B00FC42BC /* Readme.md */; };
+		432EAB092F4B000100000001 /* WordOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432EAB082F4B000100000001 /* WordOfTheDayView.swift */; };
+		432EAB0B2F4B000100000002 /* SynonymColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432EAB0A2F4B000100000002 /* SynonymColumnView.swift */; };
+		432EAB0D2F4B000100000003 /* AutocompleteSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432EAB0C2F4B000100000003 /* AutocompleteSuggestionsView.swift */; };
+		432EAB0F2F4B000100000004 /* DefinitionsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432EAB0E2F4B000100000004 /* DefinitionsSheetView.swift */; };
+		432EAB112F4B000100000005 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432EAB102F4B000100000005 /* SearchTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +153,11 @@
 		437D89302C9586600016E958 /* NerdBookiOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdBookiOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		437D893C2C9588250016E958 /* SharedLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLogic.swift; sourceTree = "<group>"; };
 		43F192AE2EE32B9B00FC42BC /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		432EAB082F4B000100000001 /* WordOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfTheDayView.swift; sourceTree = "<group>"; };
+		432EAB0A2F4B000100000002 /* SynonymColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynonymColumnView.swift; sourceTree = "<group>"; };
+		432EAB0C2F4B000100000003 /* AutocompleteSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteSuggestionsView.swift; sourceTree = "<group>"; };
+		432EAB0E2F4B000100000004 /* DefinitionsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionsSheetView.swift; sourceTree = "<group>"; };
+		432EAB102F4B000100000005 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -260,6 +270,11 @@
 				4336621E2F49901500616454 /* Info.plist */,
 				432E5D642C8A36CB007E7397 /* NerdBookApp.swift */,
 				432E5D662C8A36CB007E7397 /* ContentView.swift */,
+				432EAB082F4B000100000001 /* WordOfTheDayView.swift */,
+				432EAB0A2F4B000100000002 /* SynonymColumnView.swift */,
+				432EAB0C2F4B000100000003 /* AutocompleteSuggestionsView.swift */,
+				432EAB0E2F4B000100000004 /* DefinitionsSheetView.swift */,
+				432EAB102F4B000100000005 /* SearchTextField.swift */,
 				432EAB012EE50001007E7397 /* AboutView.swift */,
 				432EAB032EE50001007E7397 /* TipJarManager.swift */,
 				432EAB052EE50001007E7397 /* AboutWindowController.swift */,
@@ -620,6 +635,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				432E5D672C8A36CB007E7397 /* ContentView.swift in Sources */,
+				432EAB092F4B000100000001 /* WordOfTheDayView.swift in Sources */,
+				432EAB0B2F4B000100000002 /* SynonymColumnView.swift in Sources */,
+				432EAB0D2F4B000100000003 /* AutocompleteSuggestionsView.swift in Sources */,
+				432EAB0F2F4B000100000004 /* DefinitionsSheetView.swift in Sources */,
+				432EAB112F4B000100000005 /* SearchTextField.swift in Sources */,
 				4312EA3A2CB316EA00CAB5C3 /* WaveView.swift in Sources */,
 				432E5D652C8A36CB007E7397 /* NerdBookApp.swift in Sources */,
 				4312EA3D2CB3BAE400CAB5C3 /* SharedData.swift in Sources */,
